@@ -1,0 +1,67 @@
+:root {
+    /* Cores Principais (A base da ARCA) */
+    --primary: #0474C4;
+    --primary-dark: #035A99;
+    --secondary: #5379AE;
+    --light-blue: #A8C4EC; 
+    
+    /* Cores de Fundo e Texto (Melhorando o contraste) */
+    --bg-light: #F0F4FA; 
+    --bg-dark: #262B40;
+    --text-dark: #1A2A30;
+    /* Cor de Destaque (Accent) */
+    --accent: #F2A65A; 
+    --accent-hover: #D98C46;
+
+    /*Cores Semânticas  */
+    --error: #E63946;
+    --success: #2A9D8F;
+}
+
+body {
+    background: linear-gradient(135deg, var(--bg-light), #ffffff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+/* Card Login */
+    .card-login {
+        width: 100%; 
+        max-width: 400px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(38, 43, 64, 0.08); 
+        border: 1px solid rgba(168, 196, 236, 0.3); 
+        background-color: #ffffff;
+    }
+    /* Inputs */
+    .form-control:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 0.25rem rgba(4, 116, 196, 0.15); 
+    }
+
+    /* Botão */
+    .btn-primary {
+        background-color: var(--primary);
+        border: none;
+        transition: background-color 0.3s ease; 
+    }
+
+    .btn-primary:hover {
+        background-color: var(--primary-dark);
+    }
+
+    /* Link */
+    a {
+        color: var(--primary);
+        text-decoration: none; 
+        transition: color 0.3s ease;
+    }
+
+    a:hover {
+        color: var(--primary-dark);
+        text-decoration: underline;
+    }
