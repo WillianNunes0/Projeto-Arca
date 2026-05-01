@@ -1,11 +1,11 @@
 :root {
-    /* Cores Principais (A base da ARCA) */
+    /* Cores Principais*/
     --primary: #0474C4;
     --primary-dark: #215696;
     --secondary: #5379AE;
     --light-blue: #A8C4EC; 
     
-    /* Cores de Fundo e Texto (Melhorando o contraste) */
+    /* Cores de Fundo e Texto*/
     --bg-light: #F0F4FA; 
     --bg-dark: #262B40;
     --text-dark: #1A2A30;
@@ -35,14 +35,13 @@ nav{
 
 /* Card Login */
 .card-login {
-    margin-top: 50%;
-    width: 100%; 
-    max-width: 400px;
+    margin-top:15vh;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(38, 43, 64, 0.08); 
     border: 1px solid rgba(168, 196, 236, 0.3); 
     background-color: #ffffff;
 }
+
 
 /* Inputs */
 .form-control:focus {
@@ -72,3 +71,8 @@ a:hover {
     color: var(--primary-dark);
     text-decoration: underline;
 }
+
+.esqueceu-senha a{
+    color:var(--text-dark)
+}
+
