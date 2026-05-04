@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Arca</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="nav justify-content-center">
+        <a class="navbar-brand" href="#">
+            <img src="./Imagens/Logos/logo-arca.png" width="300" height="125" alt="Logo Arca">
+        </a>
+    </nav>
+
+    <section class="resgistro">
+        <div class="login d-flex align-items-center justify-content-center p-3">
+            <div class="col-10 col-sm-8 col-md-6 col-lg-4">
+
+                <div class="card card-login">
+
+                    <!-- CONTEÚDO COM SCROLL -->
+                    <div class="card-body form-scroll p-4">
+                        <form id="formulario" novalidate action="index.html">
+
+                            <!-- EMAIL -->
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email"
+                                    data-error="Insira um e-mail válido." required>
+                                <div class="error-message invalid-feedback"></div>
+                            </div>
+
+                            <!-- SENHA -->
+                            <div class="mb-3">
+                                <label for="senha" class="form-label">Senha</label>
+                                <input type="password" class="form-control" id="senha"
+                                    data-error="A senha é obrigatória." required>
+                                <div class="error-message invalid-feedback"></div>
+                            </div>
+
+                            <!-- REPETIR SENHA -->
+                            <div class="mb-3">
+                                <label for="confirmarSenha" class="form-label">Repita a senha</label>
+                                <input type="password" class="form-control" id="confirmarSenha"
+                                    data-error="As senhas devem ser iguais." required>
+                                <div class="error-message invalid-feedback"></div>
+                            </div>
+
+                            <!-- DATA DE NASCIMENTO -->
+                            <div class="mb-3">
+                                <label for="dataNascimento" class="form-label">Data de nascimento</label>
+                                <input type="date" class="form-control" id="dataNascimento" required>
+                                <div class="error-message invalid-feedback"></div>
+                            </div>
+
+                            <!-- CPF -->
+                            <div class="mb-3">
+                                <label for="cpf" class="form-label">CPF</label>
+                                <input type="text" class="form-control" id="cpf"
+                                    placeholder="000.000.000-00" maxlength="14"
+                                    inputmode="numeric" required>
+                            </div>
+
+                            <!-- RG -->
+                            <div class="mb-3">
+                                <label for="rg" class="form-label">RG</label>
+                                <input type="text" class="form-control" id="rg"
+                                    placeholder="00.000.000-0" required>
+                            </div>
+
+                            <!-- NIS -->
+                            <div class="mb-3">
+                                <label for="nis" class="form-label">NIS</label>
+                                <input type="text" class="form-control" id="nis"
+                                    inputmode="numeric" required>
+                            </div>
+
+                            <!-- CELULAR -->
+                            <div class="mb-3">
+                                <label for="celular" class="form-label">Celular</label>
+                                <input type="tel" class="form-control" id="celular"
+                                    placeholder="(00) 00000-0000" required>
+                            </div>
+
+                            <!-- CEP -->
+                            <div class="mb-3">
+                                <label for="cep" class="form-label">CEP</label>
+                                <input type="text" class="form-control" id="cep"
+                                    placeholder="00000-000" inputmode="numeric" required>
+                            </div>
+
+                            <!-- CIDADE -->
+                            <div class="mb-3">
+                                <label for="cidade" class="form-label">Cidade</label>
+                                <input type="text" class="form-control" id="cidade" required>
+                            </div>
+
+                            <!-- ENDEREÇO -->
+                            <div class="mb-3">
+                                <label for="endereco" class="form-label">Endereço</label>
+                                <input type="text" class="form-control" id="endereco" required>
+                            </div>
+
+                            <!-- TERMOS -->
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="termos" required>
+                                <label class="form-check-label" for="termos">
+                                    Aceitar os termos <br>
+                                    <a href="#">Termos de serviço</a>
+                                </label>
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <!-- RODAPÉ FIXO -->
+                    <div class="card-footer bg-white p-3">
+                        <button type="submit" form="formulario" class="btn btn-primary w-100">
+                            Registrar
+                        </button>
+
+                        <div class="text-center mt-2">
+                            <a href="index.html">Já tem uma conta?</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

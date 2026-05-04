@@ -35,11 +35,20 @@ nav {
 
 /* Card Login */
 .card-login {
-    margin-top: 15vh;
+    margin-top: 10vh;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(38, 43, 64, 0.08);
     border: 1px solid rgba(168, 196, 236, 0.3);
     background-color: #ffffff;
+
+    max-height: 60vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-scroll {
+    overflow-y: auto;
+    flex: 1;
 }
 
 .email p {

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Arca - Redefinir Senha</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- LOGO -->
+    <nav class="nav justify-content-center">
+        <a class="navbar-brand" href="index.html">
+            <img src="./Imagens/Logos/logo-arca.png" width="300" height="125" alt="Logo Arca">
+        </a>
+    </nav>
+
+    <!-- CONTEÚDO -->
+    <section class="login">
+        <div class="login d-flex align-items-center justify-content-center p-3">
+            <div class="col-10 col-sm-8 col-md-6 col-lg-4">
+
+                <div class="card card-login p-4">
+                    <form id="formulario" novalidate action="index.html">
+
+                        <!-- EMAIL -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Digite seu email</label>
+                            <input type="email" class="form-control" id="email"
+                                placeholder="seuemail@exemplo.com" required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <!-- NOVA SENHA -->
+                        <div class="mb-3">
+                            <label for="novaSenha" class="form-label">Nova senha</label>
+                            <input type="password" class="form-control" id="novaSenha"
+                                required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <!-- CONFIRMAR SENHA -->
+                        <div class="mb-3">
+                            <label for="confirmarSenha" class="form-label">Confirmar nova senha</label>
+                            <input type="password" class="form-control" id="confirmarSenha"
+                                required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <!-- BOTÃO -->
+                        <button type="submit" class="btn btn-primary w-100">
+                            Redefinir Senha
+                        </button>
+
+                    </form>
+
+                </div>
+
+                <!-- LINK VOLTAR -->
+                <div class="text-center mt-3 esqueceu-senha">
+                    <a href="index.html">Voltar para login</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
