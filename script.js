@@ -1,49 +1,70 @@
 // FORMULÁRIO DE LOGIN
-    const form = document.getElementById("formulario");
-    const emailInput = document.getElementById("email");
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const senhaInput = document.getElementById("senha");
+const form = document.getElementById("formulario");
 
-    form.addEventListener("submit", function (e) {
-        let isValid = true;
+form?.addEventListener("submit", (e) => {
+    let isValid = true;
 
-        // textos diferentes por erro
-        function aplicarValidacao(input, condicao, mensagem) {
-            const feedback = input.parentElement.querySelector(".invalid-feedback");
-            
-            if (!condicao) {
-                // Usa a mensagem passada na função ou o data-error do HTML
-                feedback.textContent = mensagem || input.dataset.error || "Campo obrigatório";
-                input.classList.add("is-invalid");
-                isValid = false;
-            } else {
-                input.classList.remove("is-invalid");
-                feedback.textContent = "";
-            }
-        }
+    const validar = (input, condicao, msg) => {
+        const feedback = input.parentElement.querySelector(".invalid-feedback");
 
-        // --- 1. Validação do E-mail (Lógica de duas etapas) ---
-        if (emailInput.value.trim() === "") {
-            aplicarValidacao(emailInput, false, "O e-mail é obrigatório."); 
-        } else if (!emailRegex.test(emailInput.value)) {
-            aplicarValidacao(emailInput, false, "Por favor, insira um e-mail válido.");
+        if (!condicao) {
+            feedback.textContent = msg;
+            input.classList.add("is-invalid");
+            isValid = false;
         } else {
-            aplicarValidacao(emailInput, true);
+            input.classList.remove("is-invalid");
+            feedback.textContent = "";
         }
+    };
 
-        // --- 2. Validação da Senha ---
-        if (senhaInput.value.trim() === "") {
-            aplicarValidacao(senhaInput, false, "A senha é obrigatória.");
-        } else {
-            aplicarValidacao(senhaInput, true);
-        }
+    const email = form.email;
+    const senha = form.senha;
 
-        // --- 3. Controle de Envio ---
-        if (!isValid) {
-            e.preventDefault(); // Só para o envio se houver erro
-            form.querySelector(".is-invalid").focus();
-        } else {
-            console.log("Enviando...");
-            // Aqui entra o código de backend futuramente
-        }
+    validar(email,
+        email.value && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value),
+        "E-mail inválido"
+    );
+
+    validar(senha,
+        senha.value.trim() !== "",
+        "Senha obrigatória"
+    );
+
+    if (!isValid) {
+        e.preventDefault();
+        form.querySelector(".is-invalid")?.focus();
+    } else {
+        e.preventDefault(); // impede reload da página
+
+        // redireciona
+        window.location.href = "menuadocao.html";
+    }
+});
+    
+document.addEventListener('DOMContentLoaded', () => {
+    const mainCard = document.getElementById('mainCard');
+    const buttons = document.querySelectorAll('.nav-link');
+
+    const aplicarTema = (btn) => {
+        const color = btn.dataset.color;
+        const target = document.querySelector(btn.dataset.bsTarget);
+        const title = target?.querySelector('h2');
+
+        // animação
+        mainCard.classList.add('card-hidden');
+
+        setTimeout(() => {
+            mainCard.style.borderTopColor = color;
+            if (title) title.style.color = color;
+
+            buttons.forEach(b => b.style.color = '');
+            btn.style.color = color;
+
+            mainCard.classList.remove('card-hidden');
+        }, 200);
+    };
+
+    buttons.forEach(btn => {
+        btn.addEventListener('shown.bs.tab', () => aplicarTema(btn));
     });
+});
