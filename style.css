@@ -123,40 +123,170 @@ a:hover {
 /* ==========================================================================
    4. FORMULÁRIOS E LOGIN
    ========================================================================== */
+   
+
+/* CARD */
+.login-section {
+    padding-top: 5vh;
+}
 .card-login {
-    margin-top: 10vh;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(38, 43, 64, 0.08);
-    border: 1px solid rgba(168, 196, 236, 0.3);
-    background-color: #ffffff;
-    max-height: 60vh;
+    height: 40vh;
+    max-height: 85vh;
+
     display: flex;
     flex-direction: column;
+
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(10px);
+
+    border: 1.5px solid rgba(4, 116, 196, 0.25);
+    border-radius: 24px;
+
+    box-shadow:
+        0 8px 32px rgba(31, 38, 135, 0.12),
+        0 2px 8px rgba(0,0,0,0.04);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
-.form-scroll {
-    overflow-y: auto;
-    flex: 1;
+/* HOVER MAIS SUAVE */
+.card-login:hover {
+    transform: translateY(-2px); 
+
+    box-shadow:
+        0 12px 28px rgba(31, 38, 135, 0.14),
+        0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* INPUTS */
+.form-control {
+    border: 1.8px solid #b7c9e6;
+    border-radius: 14px;
+
+    padding: 13px 15px;
+
+    background-color: rgba(255,255,255,0.95);
+
+    font-size: 0.96rem;
+    color: var(--text-dark);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.2s ease;
+}
+
+/* HOVER */
+.form-control:hover {
+    border-color: var(--secondary);
+}
+
+/* FOCUS */
+.form-control:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 4px rgba(4,116,196,0.14);
+
+    background: white;
 }
 
 .form-control:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 0.25rem rgba(4, 116, 196, 0.15);
+
+    box-shadow:
+        0 0 0 4px rgba(4,116,196,0.12);
+
+    background: white;
+}
+.form-scroll {
+    overflow-y: auto;
+    flex: 1;
+
+    padding-right: 6px;
 }
 
+/* FOOTER FIXO */
+.card-footer {
+    border-top: 1px solid #e7eef8;
+
+    background: rgba(255,255,255,0.96);
+
+    backdrop-filter: blur(8px);
+
+    flex-shrink: 0;
+}
+.form-scroll::-webkit-scrollbar {
+    width: 8px;
+}
+
+.form-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.form-scroll::-webkit-scrollbar-thumb {
+    background: rgba(4,116,196,0.35);
+    border-radius: 20px;
+}
+
+.form-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(4,116,196,0.55);
+}
+/* BOTÃO */
 .btn-primary {
-    background-color: var(--primary);
+    border-radius: 14px;
+
+    padding: 12px;
+
+    font-weight: 600;
+    letter-spacing: 0.3px;
+
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-dark)
+    );
+
     border: none;
-    transition: background-color 0.3s ease;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 20px rgba(4,116,196,0.22);
+}
+/* LABELS */
+.form-label {
+    font-weight: 600;
+    color: var(--text-dark);
+
+    margin-bottom: 8px;
+    letter-spacing: 0.2px;
 }
 
-.email p { color: var(--error); }
-.esqueceu-senha a { color: var(--text-dark); }
+/* LINKS */
+a {
+    font-weight: 500;
+}
 
+.form-check-input {
+    border: 1.5px solid #9eb8dc;
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
 /* ==========================================================================
    5. ANIMAÇÕES
    ========================================================================== */
