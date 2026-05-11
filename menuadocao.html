@@ -4,88 +4,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Arca - Menu</title>
+    <title>Projeto Arca</title>
+
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<!-- NAVBAR -->
-<nav class="navbar-arca">
 
-    <div class="container">
+    <!-- ======================================================
+         NAVBAR
+    ======================================================= -->
+    <nav class="navbar-arca">
 
-        <div class="navbar-wrapper">
-
-            <!-- ESQUERDA -->
-            <div class="nav-side">
-
-                <button class="nav-link active"
-                        id="tab-inicio"
-                        data-bs-toggle="tab"
-                        data-bs-target="#conteudo-inicio"
-                        type="button">
-
-                    <i class="bi bi-house">Início</i>
-                    
-
-                </button>
-
-                <button class="nav-link"
-                        id="tab-adocao"
-                        data-bs-toggle="tab"
-                        data-bs-target="#conteudo-adocao"
-                        type="button">
-
-                    <i class="bi bi-dog">Adoção</i>
-                    
-
-                </button>
-
-            </div>
+        <div class="container navbar-wrapper">
 
             <!-- LOGO -->
             <a href="#" class="logo-center">
 
                 <img src="./Imagens/Logos/logo-arca.png"
                      alt="Logo Arca"
-                     class="logo-arca"
-                     >
+                     class="logo-arca">
 
             </a>
 
-            <!-- DIREITA -->
-            <div class="nav-side">
+            <!-- HAMBURGER -->
+            <button class="menu-toggle"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mobileMenu">
 
-                <button class="nav-link"
-                        id="tab-resgate"
-                        data-bs-toggle="tab"
-                        data-bs-target="#conteudo-resgate"
-                        type="button">
+                <i class="bi bi-list"></i>
 
-                    <i class="bi bi-ambulance">Resgate</i>
-                    
+            </button>
 
-                </button>
+        </div>
 
-                <button class="nav-link"
-                        id="tab-castracao"
-                        data-bs-toggle="tab"
-                        data-bs-target="#conteudo-castracao"
-                        type="button">
+    </nav>
 
-                    <i class="bi bi-heart-pulse">Castração</i>
-                    
+    <!-- ======================================================
+         SIDEBAR DESKTOP
+    ======================================================= -->
+    <aside class="sidebar nav nav-pills flex-column">
 
-                </button>
+        <button class="nav-link sidebar-link active"
+                type="button"
+                data-bs-toggle="tab"
+                data-bs-target="#inicio">
+
+            <i class="bi bi-house"></i>
+            Início
+
+        </button>
+
+        <button class="nav-link sidebar-link"
+                type="button"
+                data-bs-toggle="tab"
+                data-bs-target="#adocao">
+
+            <i class="bi bi-dog"></i>
+            Adoção
+
+        </button>
+
+        <button class="nav-link sidebar-link"
+                type="button"
+                data-bs-toggle="tab"
+                data-bs-target="#resgate">
+
+            <i class="bi bi-ambulance"></i>
+            Resgate
+
+        </button>
+
+        <button class="nav-link sidebar-link"
+                type="button"
+                data-bs-toggle="tab"
+                data-bs-target="#castracao">
+
+            <i class="bi bi-heart-pulse"></i>
+            Castração
+
+        </button>
+
+    </aside>
+
+    <!-- ======================================================
+         MENU MOBILE
+    ======================================================= -->
+    <div class="collapse mobile-menu" id="mobileMenu">
+
+        <div class="nav nav-pills flex-column gap-2">
+
+            <button class="nav-link sidebar-link active"
+                    type="button"
+                    data-bs-toggle="tab"
+                    data-bs-target="#inicio"
+                    data-bs-dismiss="collapse">
+
+                <i class="bi bi-house"></i>
+                Início
+
+            </button>
+
+            <button class="nav-link sidebar-link"
+                    type="button"
+                    data-bs-toggle="tab"
+                    data-bs-target="#adocao">
+
+                <i class="bi bi-dog"></i>
+                Adoção
+
+            </button>
+
+            <button class="nav-link sidebar-link"
+                    type="button"
+                    data-bs-toggle="tab"
+                    data-bs-target="#resgate">
+
+                <i class="bi bi-ambulance"></i>
+                Resgate
+
+            </button>
+
+            <button class="nav-link sidebar-link"
+                    type="button"
+                    data-bs-toggle="tab"
+                    data-bs-target="#castracao">
+
+                <i class="bi bi-heart-pulse"></i>
+                Castração
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ======================================================
+         CONTEÚDO
+    ======================================================= -->
+    <main class="main-content">
+
+        <div class="tab-content">
+
+            <!-- INÍCIO -->
+            <div class="tab-pane fade show active"
+                 id="inicio">
+
+                <h1>Início</h1>
+
+                <p>
+                    Conteúdo da página inicial.
+                </p>
+
+            </div>
+
+            <!-- ADOÇÃO -->
+            <div class="tab-pane fade"
+                 id="adocao">
+
+                <h1>Adoção</h1>
+
+                <p>
+                    Conteúdo de adoção.
+                </p>
+
+            </div>
+
+            <!-- RESGATE -->
+            <div class="tab-pane fade"
+                 id="resgate">
+
+                <h1>Resgate</h1>
+
+                <p>
+                    Conteúdo de resgate.
+                </p>
+
+            </div>
+
+            <!-- CASTRAÇÃO -->
+            <div class="tab-pane fade"
+                 id="castracao">
+
+                <h1>Castração</h1>
+
+                <p>
+                    Conteúdo de castração.
+                </p>
 
             </div>
 
         </div>
 
-    </div>
+    </main>
+
+    <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-</nav>
+
 </body>
+
 </html>

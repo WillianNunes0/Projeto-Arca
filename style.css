@@ -1,6 +1,7 @@
 /* ==========================================================================
    1. VARIÁVEIS E CONFIGURAÇÕES GERAIS
    ========================================================================== */
+
 :root {
     --primary: #0474C4;
     --primary-dark: #215696;
@@ -15,123 +16,217 @@
     --success: #2A9D8F;
 }
 
+/* ==========================================================================
+   2. BODY
+   ========================================================================== */
+
 body {
     background: linear-gradient(135deg, var(--bg-light), #ffffff);
+
     min-height: 100vh;
+
     margin: 0;
+
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    flex-direction: column;
 }
+
+/* ==========================================================================
+   3. LINKS
+   ========================================================================== */
 
 a {
     color: var(--primary);
+
     text-decoration: none;
+
     transition: color 0.3s ease;
+
+    font-weight: 500;
 }
 
 a:hover {
     color: var(--primary-dark);
-    text-decoration: underline;
 }
 
 /* ==========================================================================
-   2. NAVBAR ARCA (ESTRUTURA)
+   4. NAVBAR
    ========================================================================== */
+
 .navbar-arca {
-    background-color: var(--primary-dark);
-    padding: 10px 0; 
+    height: 140px;
+
+    background: var(--primary-dark);
+
     position: sticky;
     top: 0;
-    z-index: 999;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+
+    z-index: 1000;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,.12);
 }
 
 .navbar-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
+    height: 100%;
 
-.nav-side {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex: 1;
-}
-
-.nav-side:first-child { justify-content: flex-end; }
-.nav-side:last-child  { justify-content: flex-start; }
-
-/* ==========================================================================
-   3. COMPONENTES DA NAVBAR (LOGO E LINKS)
-   ========================================================================== */
-.logo-center {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-}
 
-.logo-arca {
-    width: 320px;  /* LARGURA */
-    height: 125px; /* ALTURA */
-     
-    transition: transform 0.3s ease;
-}
-
-.logo-arca:hover {
-    transform: scale(1.04);
-}
-
-.navbar-arca .nav-link {
-    border: none;
-    background: transparent;
-    color: rgba(255,255,255,0.85);
-    font-weight: 600;
-    border-radius: 14px;
-    padding: 12px 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.3s ease;
-}
-
-.navbar-arca .nav-link:hover {
-    background: rgba(255,255,255,0.12);
-    color: white;
-    transform: translateY(-2px);
-}
-
-.navbar-arca .nav-link.active {
-    background: rgba(255,255,255,0.18);
-    color: white;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-}
-
-/* Ícones dentro dos botões */
-.navbar-arca .nav-link i {
-    font-size: 1.1rem;
-    transition: transform 0.3s ease;
-}
-
-.navbar-arca .nav-link:hover i {
-    transform: scale(1.15);
+    position: relative;
 }
 
 /* ==========================================================================
-   4. FORMULÁRIOS E LOGIN
+   5. LOGO
    ========================================================================== */
-   
 
-/* CARD */
+.logo-arca {
+    width: 260px;
+
+    transition: transform .3s ease;
+}
+
+.logo-arca:hover {
+    transform: scale(1.03);
+}
+
+/* ==========================================================================
+   6. SIDEBAR
+   ========================================================================== */
+
+.sidebar {
+    width: 260px;
+
+    top: 140px;
+    height: calc(100vh - 140px);
+
+    background: white;
+
+    position: fixed;
+
+    left: 0;
+
+    padding: 24px 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    border-right: 1px solid rgba(0,0,0,.08);
+
+    box-shadow: 4px 0 20px rgba(0,0,0,.04);
+}
+
+/* ==========================================================================
+   7. BOTÕES MENU
+   ========================================================================== */
+
+.sidebar-link {
+    border: none;
+
+    background: transparent;
+
+    color: var(--text-dark);
+
+    font-weight: 600;
+
+    border-radius: 16px;
+
+    padding: 14px 18px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    transition: .3s ease;
+}
+
+.sidebar-link i {
+    font-size: 1.1rem;
+}
+
+.sidebar-link:hover {
+    background: rgba(4,116,196,.08);
+
+    color: var(--primary);
+
+    transform: translateX(4px);
+}
+
+.sidebar-link.active {
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-dark)
+    );
+
+    color: white;
+
+    box-shadow: 0 10px 22px rgba(4,116,196,.18);
+}
+
+/* ==========================================================================
+   8. CONTEÚDO
+   ========================================================================== */
+
+.main-content {
+    margin-left: 260px;
+
+    padding: 40px;
+}
+
+/* ==========================================================================
+   9. HAMBURGER
+   ========================================================================== */
+
+.menu-toggle {
+    display: none;
+
+    position: absolute;
+
+    right: 12px;
+
+    border: none;
+    background: transparent;
+
+    color: white;
+
+    font-size: 2rem;
+
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   10. MENU MOBILE
+   ========================================================================== */
+
+.mobile-menu {
+    background: white;
+
+    padding: 18px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.mobile-menu .nav-link {
+    width: 100%;
+
+    justify-content: center;
+}
+
+/* ==========================================================================
+   11. LOGIN
+   ========================================================================== */
+
 .login-section {
     padding-top: 5vh;
 }
+
 .card-login {
-    height: 40vh;
-    max-height: 85vh;
+    min-height: 52px;
+
+    max-height: 105vh;
 
     display: flex;
     flex-direction: column;
@@ -139,9 +234,11 @@ a:hover {
     overflow: hidden;
 
     background: rgba(255, 255, 255, 0.88);
+
     backdrop-filter: blur(10px);
 
     border: 1.5px solid rgba(4, 116, 196, 0.25);
+
     border-radius: 24px;
 
     box-shadow:
@@ -152,99 +249,14 @@ a:hover {
         transform 0.25s ease,
         box-shadow 0.25s ease;
 }
-
-/* HOVER MAIS SUAVE */
 .card-login:hover {
-    transform: translateY(-2px); 
+    transform: translateY(-2px);
 
     box-shadow:
         0 12px 28px rgba(31, 38, 135, 0.14),
         0 4px 10px rgba(0,0,0,0.05);
 }
-
-/* INPUTS */
-.form-control {
-    border: 1.8px solid #b7c9e6;
-    border-radius: 14px;
-
-    padding: 13px 15px;
-
-    background-color: rgba(255,255,255,0.95);
-
-    font-size: 0.96rem;
-    color: var(--text-dark);
-
-    transition:
-        border-color 0.25s ease,
-        box-shadow 0.25s ease,
-        transform 0.2s ease;
-}
-
-/* HOVER */
-.form-control:hover {
-    border-color: var(--secondary);
-}
-
-/* FOCUS */
-.form-control:focus {
-    border-color: var(--primary);
-
-    box-shadow:
-        0 0 0 4px rgba(4,116,196,0.14);
-
-    background: white;
-}
-
-.form-control:focus {
-    border-color: var(--primary);
-
-    box-shadow:
-        0 0 0 4px rgba(4,116,196,0.12);
-
-    background: white;
-}
-.form-scroll {
-    overflow-y: auto;
-    flex: 1;
-
-    padding-right: 6px;
-}
-
-/* FOOTER FIXO */
-.card-footer {
-    border-top: 1px solid #e7eef8;
-
-    background: rgba(255,255,255,0.96);
-
-    backdrop-filter: blur(8px);
-
-    flex-shrink: 0;
-}
-.form-scroll::-webkit-scrollbar {
-    width: 8px;
-}
-
-.form-scroll::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.form-scroll::-webkit-scrollbar-thumb {
-    background: rgba(4,116,196,0.35);
-    border-radius: 20px;
-}
-
-.form-scroll::-webkit-scrollbar-thumb:hover {
-    background: rgba(4,116,196,0.55);
-}
-/* BOTÃO */
 .btn-primary {
-    border-radius: 14px;
-
-    padding: 12px;
-
-    font-weight: 600;
-    letter-spacing: 0.3px;
-
     background: linear-gradient(
         135deg,
         var(--primary),
@@ -253,76 +265,81 @@ a:hover {
 
     border: none;
 
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
+    border-radius: 18px;
 
-.btn-primary:hover {
-    transform: translateY(-2px);
+    padding: 12px 22px;
+
+    font-weight: 600;
 
     box-shadow:
-        0 10px 20px rgba(4,116,196,0.22);
+        0 8px 18px rgba(4,116,196,.18);
 }
-/* LABELS */
-.form-label {
-    font-weight: 600;
+/* ==========================================================================
+   12. INPUTS
+   ========================================================================== */
+
+.form-control {
+    border: 1.8px solid #b7c9e6;
+
+    border-radius: 14px;
+
+    padding: 13px 15px;
+
+    background-color: rgba(255,255,255,0.95);
+
+    font-size: 0.96rem;
+
     color: var(--text-dark);
 
-    margin-bottom: 8px;
-    letter-spacing: 0.2px;
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.2s ease;
 }
 
-/* LINKS */
-a {
-    font-weight: 500;
+.form-control:hover {
+    border-color: var(--secondary);
 }
 
-.form-check-input {
-    border: 1.5px solid #9eb8dc;
-    cursor: pointer;
-}
-
-.form-check-input:checked {
-    background-color: var(--primary);
+.form-control:focus {
     border-color: var(--primary);
-}
-/* ==========================================================================
-   5. ANIMAÇÕES
-   ========================================================================== */
-.transition-card {
-    transition: border-top-color 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
-}
 
-.tab-pane.fade {
-    transition: opacity 0.4s linear;
-}
+    box-shadow:
+        0 0 0 4px rgba(4,116,196,0.14);
 
-.tab-pane.active.show {
-    animation: slideUp 0.5s ease-out forwards;
+    background: white;
 }
+.form-scroll {
+    flex: 1;
 
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    overflow-y: auto;
+
+    min-height: 0;
+
+    padding-right: 6px;
 }
 
 /* ==========================================================================
-   6. RESPONSIVIDADE
+   13. RESPONSIVO
    ========================================================================== */
+
 @media (max-width: 991px) {
-    .navbar-wrapper {
-        flex-direction: column;
-        gap: 15px;
+
+    .sidebar {
+        display: none;
     }
 
-    .nav-side {
-        justify-content: center !important;
-        flex-wrap: wrap;
+    .main-content {
+        margin-left: 0;
+
+        padding: 20px;
+    }
+
+    .menu-toggle {
+        display: block;
     }
 
     .logo-arca {
-        width: 250px; 
-        height: auto;
+        width: 180px;
     }
 }
