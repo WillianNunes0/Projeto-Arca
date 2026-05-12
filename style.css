@@ -1,20 +1,20 @@
-/* ==========================================================================
+/*==========================================================================
    1. VARIÁVEIS E CONFIGURAÇÕES GERAIS
-   ========================================================================== */
-
-:root {
-    --primary: #0474C4;
-    --primary-dark: #215696;
-    --secondary: #5379AE;
-    --light-blue: #A8C4EC;
-    --bg-light: #F0F4FA;
-    --bg-dark: #262B40;
-    --text-dark: #1A2A30;
-    --accent: #F2A65A;
-    --accent-hover: #D98C46;
-    --error: #E63946;
-    --success: #2A9D8F;
-}
+    ========================================================================== */
+    
+    :root {
+        --primary: #0474C4;
+        --primary-dark: #215696;
+        --secondary: #5379AE;
+        --light-blue: #A8C4EC;
+        --bg-light: #F0F4FA;
+        --bg-dark: #262B40;
+        --text-dark: #1A2A30;
+        --accent: #F2A65A;
+        --accent-hover: #D98C46;
+        --error: #E63946;
+        --success: #2A9D8F;
+    }
 
 /* ==========================================================================
    2. BODY
@@ -28,6 +28,8 @@ body {
     margin: 0;
 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    
 }
 
 /* ==========================================================================
@@ -50,7 +52,7 @@ a:hover {
 
 /* ==========================================================================
    4. NAVBAR
-   ========================================================================== */
+    ========================================================================== */
 
 .navbar-arca {
     height: 140px;
@@ -94,27 +96,27 @@ a:hover {
    ========================================================================== */
 
 .sidebar {
-    width: 260px;
-
-    top: 140px;
-    height: calc(100vh - 140px);
-
-    background: white;
+    width: 220px;
 
     position: fixed;
 
-    left: 0;
+    left: 24px;
 
-    padding: 24px 18px;
+    top: 50%;
+    transform: translateY(-50%);
 
     display: flex;
     flex-direction: column;
 
-    gap: 12px;
+    gap: 16px;
 
-    border-right: 1px solid rgba(0,0,0,.08);
+    padding: 0;
 
-    box-shadow: 4px 0 20px rgba(0,0,0,.04);
+    background: transparent;
+
+    border: none;
+
+    box-shadow: none;
 }
 
 /* ==========================================================================

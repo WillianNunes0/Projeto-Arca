@@ -68,3 +68,5 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('shown.bs.tab', () => aplicarTema(btn));
     });
 });
+
+
