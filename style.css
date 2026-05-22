@@ -1,47 +1,60 @@
 /*==========================================================================
    1. VARIÁVEIS E CONFIGURAÇÕES GERAIS
-    ========================================================================== */
-    
-    :root {
-        --primary: #0474C4;
-        --primary-dark: #215696;
-        --secondary: #5379AE;
-        --light-blue: #A8C4EC;
-        --bg-light: #F0F4FA;
-        --bg-dark: #262B40;
-        --text-dark: #1A2A30;
-        --accent: #F2A65A;
-        --accent-hover: #D98C46;
-        --error: #E63946;
-        --success: #2A9D8F;
-    }
+==========================================================================*/
 
-/* ==========================================================================
+:root {
+    /* Cores */
+    --primary: #0474C4;
+    --primary-dark: #215696;
+    --secondary: #5379AE;
+    --light-blue: #A8C4EC;
+    --bg-light: #F0F4FA;
+    --bg-dark: #262B40;
+    --text-dark: #1A2A30;
+    --accent: #F2A65A;
+    --accent-hover: #D98C46;
+    --error: #E63946;
+    --success: #2A9D8F;
+
+    /* Fontes */
+    --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /* Tamanhos de Fonte */
+    --font-size-icon: 1.1rem;      /* Utilizado em .sidebar-link i */
+    --font-size-toggle: 2rem;      /* Utilizado em .menu-toggle */
+    --font-size-input: .96rem;     /* Utilizado em .form-control */
+}
+
+/*==========================================================================
    2. BODY
-   ========================================================================== */
+==========================================================================*/
 
 body {
-    background: linear-gradient(135deg, var(--bg-light), #ffffff);
+    background: linear-gradient(
+        135deg,
+        var(--bg-light),
+        #ffffff
+    );
 
     min-height: 100vh;
 
     margin: 0;
 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--font-family-base);
 
-    
+    overflow-x: hidden;
 }
 
-/* ==========================================================================
+/*==========================================================================
    3. LINKS
-   ========================================================================== */
+==========================================================================*/
 
 a {
     color: var(--primary);
 
     text-decoration: none;
 
-    transition: color 0.3s ease;
+    transition: color .3s ease;
 
     font-weight: 500;
 }
@@ -50,62 +63,140 @@ a:hover {
     color: var(--primary-dark);
 }
 
-/* ==========================================================================
+/*==========================================================================
    4. NAVBAR
-    ========================================================================== */
+==========================================================================*/
 
 .navbar-arca {
-    height: 140px;
+
+    height: 200px;
 
     background: var(--primary-dark);
 
     position: sticky;
+
     top: 0;
 
-    z-index: 1000;
+    z-index: 1100;
 
-    box-shadow: 0 8px 25px rgba(0,0,0,.12);
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.12);
+
+    transition:
+        height .45s ease;
 }
 
 .navbar-wrapper {
+
     height: 100%;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     position: relative;
 }
 
-/* ==========================================================================
+/*==========================================================================
    5. LOGO
-   ========================================================================== */
+==========================================================================*/
 
 .logo-arca {
+
     width: 260px;
 
-    transition: transform .3s ease;
+    transition:
+        transform .3s ease;
 }
 
 .logo-arca:hover {
+
     transform: scale(1.03);
 }
 
-/* ==========================================================================
-   6. SIDEBAR
-   ========================================================================== */
+/*==========================================================================
+   6. MENU LAYOUT
+==========================================================================*/
+
+.menu-layout {
+
+    position: relative;
+}
+
+/*==========================================================================
+   7. BOTÃO ATIVO
+==========================================================================*/
+
+.active-slot {
+
+    position: fixed;
+
+    top: 150px;
+
+    left: 24px;
+
+    width: 220px;
+
+    z-index: 1200;
+}
+
+.active-slot::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -40px;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 40px;
+
+    background: var(--primary-dark);
+
+    border-radius: 0 0 18px 18px;
+
+    animation:
+        navbarExpand .6s ease;
+}
+
+@keyframes navbarExpand {
+
+    from {
+
+        opacity: 0;
+
+            transform: translateY(-16px);
+    }
+
+    to {
+
+        opacity: 1;
+
+            transform: translateY(0);
+    }
+}
+
+/*==========================================================================
+   8. SIDEBAR
+==========================================================================*/
 
 .sidebar {
+
     width: 220px;
 
     position: fixed;
 
     left: 24px;
 
-    top: 50%;
-    transform: translateY(-50%);
+    top: 290px;
 
     display: flex;
+
     flex-direction: column;
 
     gap: 16px;
@@ -117,13 +208,17 @@ a:hover {
     border: none;
 
     box-shadow: none;
+
+    transition:
+        all .45s ease;
 }
 
-/* ==========================================================================
-   7. BOTÕES MENU
-   ========================================================================== */
+/*==========================================================================
+   9. BOTÕES MENU
+==========================================================================*/
 
 .sidebar-link {
+
     border: none;
 
     background: transparent;
@@ -132,57 +227,103 @@ a:hover {
 
     font-weight: 600;
 
-    border-radius: 16px;
+    border-radius: 18px;
 
     padding: 14px 18px;
 
     display: flex;
+
     align-items: center;
 
     gap: 12px;
 
-    transition: .3s ease;
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform .45s ease,
+        opacity .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
 }
 
 .sidebar-link i {
-    font-size: 1.1rem;
+
+    font-size: var(--font-size-icon);
 }
 
 .sidebar-link:hover {
-    background: rgba(4,116,196,.08);
 
-    color: var(--primary);
+    background:
+        rgba(4,116,196,.08);
 
-    transform: translateX(4px);
+    color:
+        var(--primary);
+
+    transform:
+        translateX(4px);
 }
 
 .sidebar-link.active {
-    background: linear-gradient(
-        135deg,
-        var(--primary),
-        var(--primary-dark)
-    );
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--primary-dark)
+        );
 
     color: white;
 
-    box-shadow: 0 10px 22px rgba(4,116,196,.18);
+    transform: scale(1.03);
+
+    box-shadow:
+        0 14px 30px rgba(4,116,196,.24);
 }
 
-/* ==========================================================================
-   8. CONTEÚDO
-   ========================================================================== */
+/*==========================================================================
+   10. BOTÃO ATIVO DENTRO DA NAVBAR
+==========================================================================*/
+
+.active-slot .sidebar-link {
+
+    width: 100%;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--primary-dark)
+        );
+
+    box-shadow:
+        0 18px 34px rgba(0,0,0,.20);
+
+    border-radius: 20px;
+}
+
+/*==========================================================================
+   11. CONTEÚDO
+==========================================================================*/
 
 .main-content {
+
     margin-left: 260px;
 
     padding: 40px;
+
+    padding-top: 60px;
 }
 
-/* ==========================================================================
-   9. HAMBURGER
-   ========================================================================== */
+/*==========================================================================
+   12. HAMBURGER
+==========================================================================*/
 
 .menu-toggle {
+
     display: none;
 
     position: absolute;
@@ -190,80 +331,98 @@ a:hover {
     right: 12px;
 
     border: none;
+
     background: transparent;
 
     color: white;
 
-    font-size: 2rem;
+    font-size: var(--font-size-toggle);
 
     cursor: pointer;
 }
 
-/* ==========================================================================
-   10. MENU MOBILE
-   ========================================================================== */
+/*==========================================================================
+   13. MENU MOBILE
+==========================================================================*/
 
 .mobile-menu {
+
     background: white;
 
     padding: 18px;
 
-    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.08);
 }
 
 .mobile-menu .nav-link {
+
     width: 100%;
 
     justify-content: center;
 }
 
-/* ==========================================================================
-   11. LOGIN
-   ========================================================================== */
+/*==========================================================================
+   14. LOGIN
+==========================================================================*/
 
 .login-section {
+
     padding-top: 5vh;
 }
 
 .card-login {
+
     min-height: 52px;
 
     max-height: 105vh;
 
     display: flex;
+
     flex-direction: column;
 
     overflow: hidden;
 
-    background: rgba(255, 255, 255, 0.88);
+    background:
+        rgba(255,255,255,.88);
 
     backdrop-filter: blur(10px);
 
-    border: 1.5px solid rgba(4, 116, 196, 0.25);
+    border:
+        1.5px solid rgba(4,116,196,.25);
 
     border-radius: 24px;
 
     box-shadow:
-        0 8px 32px rgba(31, 38, 135, 0.12),
-        0 2px 8px rgba(0,0,0,0.04);
+        0 8px 32px rgba(31,38,135,.12),
+        0 2px 8px rgba(0,0,0,.04);
 
     transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+        transform .25s ease,
+        box-shadow .25s ease;
 }
+
 .card-login:hover {
+
     transform: translateY(-2px);
 
     box-shadow:
-        0 12px 28px rgba(31, 38, 135, 0.14),
-        0 4px 10px rgba(0,0,0,0.05);
+        0 12px 28px rgba(31,38,135,.14),
+        0 4px 10px rgba(0,0,0,.05);
 }
+
+/*==========================================================================
+   15. BOTÕES
+==========================================================================*/
+
 .btn-primary {
-    background: linear-gradient(
-        135deg,
-        var(--primary),
-        var(--primary-dark)
-    );
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--primary-dark)
+        );
 
     border: none;
 
@@ -275,43 +434,63 @@ a:hover {
 
     box-shadow:
         0 8px 18px rgba(4,116,196,.18);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
 }
-/* ==========================================================================
-   12. INPUTS
-   ========================================================================== */
+
+.btn-primary:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 24px rgba(4,116,196,.24);
+}
+
+/*==========================================================================
+   16. INPUTS
+==========================================================================*/
 
 .form-control {
-    border: 1.8px solid #b7c9e6;
+
+    border:
+        1.8px solid #b7c9e6;
 
     border-radius: 14px;
 
     padding: 13px 15px;
 
-    background-color: rgba(255,255,255,0.95);
+    background-color:
+        rgba(255,255,255,.95);
 
-    font-size: 0.96rem;
+    font-size: var(--font-size-input);
 
     color: var(--text-dark);
 
     transition:
-        border-color 0.25s ease,
-        box-shadow 0.25s ease,
-        transform 0.2s ease;
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .2s ease;
 }
 
 .form-control:hover {
+
     border-color: var(--secondary);
 }
 
 .form-control:focus {
+
     border-color: var(--primary);
 
     box-shadow:
-        0 0 0 4px rgba(4,116,196,0.14);
+        0 0 0 4px rgba(4,116,196,.14);
 
     background: white;
 }
+
 .form-scroll {
+
     flex: 1;
 
     overflow-y: auto;
@@ -321,27 +500,41 @@ a:hover {
     padding-right: 6px;
 }
 
-/* ==========================================================================
-   13. RESPONSIVO
-   ========================================================================== */
+/*==========================================================================
+   17. RESPONSIVO
+==========================================================================*/
 
 @media (max-width: 991px) {
 
+    .active-slot {
+
+        display: none;
+    }
+
     .sidebar {
+
         display: none;
     }
 
     .main-content {
+
         margin-left: 0;
 
         padding: 20px;
     }
 
     .menu-toggle {
+
         display: block;
     }
 
     .logo-arca {
+
         width: 180px;
+    }
+
+    .navbar-arca {
+
+        height: 140px;
     }
 }
