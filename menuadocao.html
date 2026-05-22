@@ -10,8 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Bootstrap Icons -->
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
@@ -29,17 +28,12 @@
             <!-- LOGO -->
             <a href="#" class="logo-center">
 
-                <img src="./Imagens/Logos/logo-arca.png"
-                     alt="Logo Arca"
-                     class="logo-arca">
+                <img src="./Imagens/Logos/logo-arca.png" alt="Logo Arca" class="logo-arca">
 
             </a>
 
             <!-- HAMBURGER -->
-            <button class="menu-toggle"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#mobileMenu">
+            <button class="menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">
 
                 <i class="bi bi-list"></i>
 
@@ -54,40 +48,28 @@
     ======================================================= -->
     <aside class="sidebar nav nav-pills flex-column">
 
-        <button class="nav-link sidebar-link active"
-                type="button"
-                data-bs-toggle="tab"
-                data-bs-target="#Adocao">
+        <button class="nav-link sidebar-link active" type="button" data-bs-toggle="tab" data-bs-target="#Adocao">
 
             <i class="bi bi-house"></i>
             Adoção
 
         </button>
 
-        <button class="nav-link sidebar-link"
-                type="button"
-                data-bs-toggle="tab"
-                data-bs-target="#MausTratos">
+        <button class="nav-link sidebar-link" type="button" data-bs-toggle="tab" data-bs-target="#MausTratos">
 
             <i class="bi bi-bandaid"></i>
             Maus Tratos
 
         </button>
 
-        <button class="nav-link sidebar-link"
-                type="button"
-                data-bs-toggle="tab"
-                data-bs-target="#resgate">
+        <button class="nav-link sidebar-link" type="button" data-bs-toggle="tab" data-bs-target="#resgate">
 
             <i class="bi bi-truck"></i>
             Resgate
 
         </button>
 
-        <button class="nav-link sidebar-link"
-                type="button"
-                data-bs-toggle="tab"
-                data-bs-target="#castracao">
+        <button class="nav-link sidebar-link" type="button" data-bs-toggle="tab" data-bs-target="#castracao">
 
             <i class="bi bi-heart-pulse"></i>
             Castração
@@ -103,41 +85,29 @@
 
         <div class="nav nav-pills flex-column gap-2">
 
-            <button class="nav-link sidebar-link active"
-                    type="button"
-                    data-bs-toggle="tab"
-                    data-bs-target="#Adocao"
-                    data-bs-dismiss="collapse">
+            <button class="nav-link sidebar-link active" type="button" data-bs-toggle="tab" data-bs-target="#Adocao"
+                data-bs-dismiss="collapse">
 
                 <i class="bi bi-house"></i>
                 Adoção
 
             </button>
 
-            <button class="nav-link sidebar-link"
-                    type="button"
-                    data-bs-toggle="tab"
-                    data-bs-target="#MausTratos">
+            <button class="nav-link sidebar-link" type="button" data-bs-toggle="tab" data-bs-target="#MausTratos">
 
-                <i class="bi bi-dog"></i>
+                <i class="bi bi-bandaid"></i>
                 Maus-Tratos
 
             </button>
 
-            <button class="nav-link sidebar-link"
-                    type="button"
-                    data-bs-toggle="tab"
-                    data-bs-target="#resgate">
+            <button class="nav-link sidebar-link" type="button" data-bs-toggle="tab" data-bs-target="#resgate">
 
-                <i class="bi bi-ambulance"></i>
+                <i class="bi bi-truck"></i>
                 Resgate
 
             </button>
 
-            <button class="nav-link sidebar-link"
-                    type="button"
-                    data-bs-toggle="tab"
-                    data-bs-target="#castracao">
+            <button class="nav-link sidebar-link" type="button" data-bs-toggle="tab" data-bs-target="#castracao">
 
                 <i class="bi bi-heart-pulse"></i>
                 Castração
@@ -155,21 +125,171 @@
 
         <div class="tab-content">
 
-            <!-- INÍCIO -->
-            <div class="tab-pane fade show active"
-                 id="Adocao">
+            <!-- ADOÇÃO -->
+            <div class="tab-pane fade show active" id="Adocao">
 
-                <h1>Adoção</h1>
+                <section class="pets-list">
 
-                <p>
-                    Conteúdo da Adoção.
-                </p>
+                    <!-- CARD 1-->
+                    <article class="pet-card-horizontal">
+
+                        <button class="favorite-btn">
+                            <i class="bi bi-heart"></i>
+                        </button>
+
+                        <div class="pet-image">
+                            <img src="img/cachorro1.jpg" alt="Thor">
+                        </div>
+
+                        <div class="pet-info">
+
+                            <h3>Thor</h3>
+
+                            <p>
+                                <strong>Idade:</strong> 2 anos
+                            </p>
+
+                            <p>
+                                <strong>Raça:</strong> Golden Retriever
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                    <!-- CARD 2-->
+                    <article class="pet-card-horizontal">
+
+                        <button class="favorite-btn">
+                            <i class="bi bi-heart"></i>
+                        </button>
+
+                        <div class="pet-image">
+                            <img src="img/gato1.jpg" alt="Mia">
+                        </div>
+
+                        <div class="pet-info">
+
+                            <h3>Mia</h3>
+
+                            <p>
+                                <strong>Idade:</strong> 1 ano
+                            </p>
+
+                            <p>
+                                <strong>Raça:</strong> Persa
+                            </p>
+
+                        </div>
+
+                    </article>
+                    
+                    <article class="pet-card-horizontal">
+
+                        <button class="favorite-btn">
+                            <i class="bi bi-heart"></i>
+                        </button>
+
+                        <div class="pet-image">
+                            <img src="img/gato1.jpg" alt="Mia">
+                        </div>
+
+                        <div class="pet-info">
+
+                            <h3>Mia</h3>
+
+                            <p>
+                                <strong>Idade:</strong> 1 ano
+                            </p>
+
+                            <p>
+                                <strong>Raça:</strong> Persa
+                            </p>
+
+                        </div>
+
+                    </article>
+                    <article class="pet-card-horizontal">
+
+                        <button class="favorite-btn">
+                            <i class="bi bi-heart"></i>
+                        </button>
+
+                        <div class="pet-image">
+                            <img src="img/gato1.jpg" alt="Mia">
+                        </div>
+
+                        <div class="pet-info">
+
+                            <h3>Mia</h3>
+
+                            <p>
+                                <strong>Idade:</strong> 1 ano
+                            </p>
+
+                            <p>
+                                <strong>Raça:</strong> Persa
+                            </p>
+
+                        </div>
+
+                    </article>
+                    <article class="pet-card-horizontal">
+    
+                        <button class="favorite-btn">
+                            <i class="bi bi-heart"></i>
+                        </button>
+    
+                        <div class="pet-image">
+                            <img src="img/gato1.jpg" alt="Mia">
+                        </div>
+    
+                        <div class="pet-info">
+    
+                            <h3>Mia</h3>
+    
+                            <p>
+                                <strong>Idade:</strong> 1 ano
+                            </p>
+    
+                            <p>
+                                <strong>Raça:</strong> Persa
+                            </p>
+    
+                        </div>
+    
+                    </article>
+                    <article class="pet-card-horizontal">
+    
+                        <button class="favorite-btn">
+                            <i class="bi bi-heart"></i>
+                        </button>
+    
+                        <div class="pet-image">
+                            <img src="img/gato1.jpg" alt="Mia">
+                        </div>
+    
+                        <div class="pet-info">
+    
+                            <h3>Mia</h3>
+    
+                            <p>
+                                <strong>Idade:</strong> 1 ano
+                            </p>
+    
+                            <p>
+                                <strong>Raça:</strong> Persa
+                            </p>
+    
+                        </div>
+    
+                    </article>
+                </section>
 
             </div>
 
-            <!-- ADOÇÃO -->
-            <div class="tab-pane fade"
-                 id="MausTratos">
+            <!-- Maus Tratos -->
+            <div class="tab-pane fade" id="MausTratos">
 
                 <h1>Maus-Tratos</h1>
 
@@ -180,8 +300,7 @@
             </div>
 
             <!-- RESGATE -->
-            <div class="tab-pane fade"
-                 id="resgate">
+            <div class="tab-pane fade" id="resgate">
 
                 <h1>Resgate</h1>
 
@@ -192,8 +311,7 @@
             </div>
 
             <!-- CASTRAÇÃO -->
-            <div class="tab-pane fade"
-                 id="castracao">
+            <div class="tab-pane fade" id="castracao">
 
                 <h1>Castração</h1>
 
