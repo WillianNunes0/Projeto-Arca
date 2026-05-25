@@ -186,30 +186,18 @@ a:hover {
 ==========================================================================*/
 
 .sidebar {
-
     width: 220px;
-
     position: fixed;
-
     left: 24px;
-
     top: 50%;
-    
+    transform: translateY(-50%); 
     display: flex;
-
     flex-direction: column;
-
     gap: 16px;
-
     background: transparent;
-
     border: none;
-
     box-shadow: none;
-
-    transition:
-        all .45s ease;
-    
+    transition: all .45s ease;
 }
 
 /*==========================================================================
