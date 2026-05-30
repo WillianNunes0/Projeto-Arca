@@ -69,7 +69,7 @@ a:hover {
 
 .navbar-arca {
 
-    height: 200px;
+    height: 150px;
 
     background: var(--primary-dark);
 
@@ -189,8 +189,8 @@ a:hover {
     width: 220px;
     position: fixed;
     left: 24px;
-    top: 50%;
-    transform: translateY(-50%); 
+    top: calc(150px + (100vh - 150px) / 2);
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -535,6 +535,7 @@ CARD HORIZONTAL
     transition:
     transform .3s ease,
     box-shadow .3s ease;
+    cursor: pointer;
 }
 
 .pet-card-horizontal:hover {
@@ -550,31 +551,25 @@ FOTO
 ==========================================================================*/
 
 .pet-image {
-    
     width: 140px;
-    
     height: 140px;
-    
     border-radius: 20px;
-    
     overflow: hidden;
-    
     flex-shrink: 0;
+    background-color: #f8f9fa;
+    display: flex;   
+    align-items: center;     
+    justify-content: center;  
 }
 
 .pet-image img {
-    
     width: 100%;
-    
     height: 100%;
-    
-    object-fit: cover;
-    
+    object-fit: contain;
     transition: transform .35s ease;
 }
 
 .pet-card-horizontal:hover .pet-image img {
-    
     transform: scale(1.05);
 }
 
@@ -765,4 +760,100 @@ BOTÃO CURTIR
 
         height: 38px;
     }
+}
+
+/*==========================================================================
+   18. MODAL MODERNO E CARROSSEL
+==========================================================================*/
+
+.navbar-arca {
+    z-index: 1000;
+}
+
+.modal {
+    z-index: 1060;
+}
+
+.modal-backdrop {
+    z-index: 1050;
+}
+
+.modal-content {
+    width: 100%;
+    background: #fff;
+    border: none;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.modal-carousel-img {
+    height: 320px;
+    object-fit: contain;
+    width: 100%;
+    display: block;
+    background-color: #ffffff;
+}
+
+.modal-body {
+    padding: 1.75rem !important;
+}
+
+.modal-body h2 {
+    font-size: 1.6rem;
+}
+
+.modal-body h5 {
+    font-size: 1.15rem;
+    margin-bottom: 0.4rem !important;
+}
+
+.modal-body p {
+    margin-bottom: 0.8rem !important;
+    line-height: 1.4 !important;
+    font-size: 0.95rem;
+}
+
+.modal-body .mb-4, 
+.modal-body .mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+.modal-body .mt-4 {
+    margin-top: 1.2rem !important;
+}
+
+.modal-body .pb-3 {
+    padding-bottom: 0.8rem !important;
+}
+
+.btn-adocao {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 0.8rem !important;
+    font-size: 1.1rem;
+}
+
+.btn-adocao:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(25, 135, 84, 0.3) !important;
+}
+
+.modal-content .btn-close {
+    opacity: 0.8;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 10;
+}
+
+.modal-content .btn-close:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .modal-carousel-img {
+        height: 250px;
+    }
+    
+    .modal-body {
+        padding: 1.25rem !important;
+    }
+    
 }

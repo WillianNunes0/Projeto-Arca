@@ -6,331 +6,228 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto Arca</title>
 
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- ======================================================
-         NAVBAR
-    ======================================================= -->
     <nav class="navbar-arca">
-
         <div class="container navbar-wrapper">
-
-            <!-- LOGO -->
             <a href="#" class="logo-center">
-
                 <img src="./Imagens/Logos/logo-arca.png" alt="Logo Arca" class="logo-arca">
-
             </a>
 
-            <!-- HAMBURGER -->
             <button class="menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">
-
                 <i class="bi bi-list"></i>
-
             </button>
-
         </div>
-
     </nav>
 
-    <!-- ======================================================
-         SIDEBAR DESKTOP
-    ======================================================= -->
     <aside class="sidebar nav nav-pills flex-column">
-
         <button class="nav-link sidebar-link active" type="button" data-bs-toggle="tab" data-bs-target="#Adocao">
-
             <i class="bi bi-house"></i>
             Adoção
-
         </button>
 
         <button class="nav-link sidebar-link" type="button" data-bs-toggle="tab" data-bs-target="#MausTratos">
-
             <i class="bi bi-bandaid"></i>
             Maus Tratos
-
         </button>
 
         <button class="nav-link sidebar-link" type="button" data-bs-toggle="tab" data-bs-target="#resgate">
-
             <i class="bi bi-truck"></i>
             Resgate
-
         </button>
 
         <button class="nav-link sidebar-link" type="button" data-bs-toggle="tab" data-bs-target="#castracao">
-
             <i class="bi bi-heart-pulse"></i>
             Castração
-
         </button>
-
     </aside>
 
-    <!-- ======================================================
-         MENU MOBILE
-    ======================================================= -->
     <div class="collapse mobile-menu" id="mobileMenu">
-
         <div class="nav nav-pills flex-column gap-2">
-
-            <button class="nav-link sidebar-link active" type="button" data-bs-toggle="tab" data-bs-target="#Adocao"
-                data-bs-dismiss="collapse">
-
-                <i class="bi bi-house"></i>
-                Adoção
-
+            <button class="nav-link sidebar-link active" type="button" data-bs-toggle="tab" data-bs-target="#Adocao" data-bs-dismiss="collapse">
+                <i class="bi bi-house"></i> Adoção
             </button>
-
             <button class="nav-link sidebar-link" type="button" data-bs-toggle="tab" data-bs-target="#MausTratos">
-
-                <i class="bi bi-bandaid"></i>
-                Maus-Tratos
-
+                <i class="bi bi-bandaid"></i> Maus-Tratos
             </button>
-
             <button class="nav-link sidebar-link" type="button" data-bs-toggle="tab" data-bs-target="#resgate">
-
-                <i class="bi bi-truck"></i>
-                Resgate
-
+                <i class="bi bi-truck"></i> Resgate
             </button>
-
             <button class="nav-link sidebar-link" type="button" data-bs-toggle="tab" data-bs-target="#castracao">
-
-                <i class="bi bi-heart-pulse"></i>
-                Castração
-
+                <i class="bi bi-heart-pulse"></i> Castração
             </button>
-
         </div>
-
     </div>
 
-    <!-- ======================================================
-         CONTEÚDO
-    ======================================================= -->
     <main class="main-content">
-
         <div class="tab-content">
 
-            <!-- ADOÇÃO -->
             <div class="tab-pane fade show active" id="Adocao">
-
                 <section class="pets-list">
 
-                    <!-- CARD 1-->
-                    <article class="pet-card-horizontal">
-
-                        <button class="favorite-btn">
-                            <i class="bi bi-heart"></i>
-                        </button>
-
-                        <div class="pet-image">
-                            <img src="img/cachorro1.jpg" alt="Thor">
-                        </div>
-
+                    <article class="pet-card-horizontal"
+                        data-species="Cachorro"
+                        data-habits="Adora brincar de bolinha, correr na grama e é muito sociável com outros cães. Muito enérgico!"
+                        data-story="Foi resgatado vagando pelas ruas de Itapuã após denúncias de moradores. Estava muito assustado, mas hoje é puro amor."
+                        data-images='["./Imagens/animais/01.jpg", "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e", "https://images.unsplash.com/photo-1543466835-00a7907e9de1"]'>
+                        <button class="favorite-btn"><i class="bi bi-heart"></i></button>
+                        <div class="pet-image"><img src="./Imagens/animais/01.jpg" alt="Thor"></div>
                         <div class="pet-info">
-
                             <h3>Thor</h3>
-
-                            <p>
-                                <strong>Idade:</strong> 2 anos
-                            </p>
-
-                            <p>
-                                <strong>Raça:</strong> Golden Retriever
-                            </p>
-
+                            <p><strong>Idade:</strong> 2 anos</p>
+                            <p><strong>Raça:</strong> Bulldog</p>
                         </div>
-
                     </article>
 
-                    <!-- CARD 2-->
-                    <article class="pet-card-horizontal">
-
-                        <button class="favorite-btn">
-                            <i class="bi bi-heart"></i>
-                        </button>
-
-                        <div class="pet-image">
-                            <img src="img/gato1.jpg" alt="Mia">
-                        </div>
-
+                    <article class="pet-card-horizontal"
+                        data-species="Gato"
+                        data-habits="Dorme a maior parte do dia, ama caixas de papelão e é um pouco tímida com desconhecidos."
+                        data-story="Foi encontrada presa no telhado de uma casa abandonada. Os bombeiros ajudaram no resgate."
+                        data-images='["./Imagens/animais/02.png", "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba"]'>
+                        <button class="favorite-btn"><i class="bi bi-heart"></i></button>
+                        <div class="pet-image"><img src="./Imagens/animais/02.png" alt="Mia"></div>
                         <div class="pet-info">
-
                             <h3>Mia</h3>
-
-                            <p>
-                                <strong>Idade:</strong> 1 ano
-                            </p>
-
-                            <p>
-                                <strong>Raça:</strong> Persa
-                            </p>
-
+                            <p><strong>Idade:</strong> 1 ano</p>
+                            <p><strong>Raça:</strong> Siamês</p>
                         </div>
-
                     </article>
-                    <!-- CARD 3-->
-                    <article class="pet-card-horizontal">
 
-                        <button class="favorite-btn">
-                            <i class="bi bi-heart"></i>
-                        </button>
-
-                        <div class="pet-image">
-                            <img src="img/gato1.jpg" alt="Mia">
-                        </div>
-
+                    <article class="pet-card-horizontal"
+                        data-species="Cachorro"
+                        data-habits="Super dócil, adora crianças e ama deitar no sofá recebendo carinho na barriga."
+                        data-story="Resgatada de uma situação de maus-tratos extremos. Ela precisou de meses de reabilitação, mas nunca perdeu a doçura."
+                        data-images='["./Imagens/animais/03.png", "https://images.unsplash.com/photo-1552053831-71594a27632d"]'>
+                        <button class="favorite-btn"><i class="bi bi-heart"></i></button>
+                        <div class="pet-image"><img src="./Imagens/animais/03.png" alt="Princesa"></div>
                         <div class="pet-info">
-
-                            <h3>Mia</h3>
-
-                            <p>
-                                <strong>Idade:</strong> 1 ano
-                            </p>
-
-                            <p>
-                                <strong>Raça:</strong> Persa
-                            </p>
-
+                            <h3>Princesa</h3>
+                            <p><strong>Idade:</strong> 2 anos</p>
+                            <p><strong>Raça:</strong> Pit Bull</p>
                         </div>
-
                     </article>
-                    <!-- CARD 4-->
-                    <article class="pet-card-horizontal">
 
-                        <button class="favorite-btn">
-                            <i class="bi bi-heart"></i>
-                        </button>
-
-                        <div class="pet-image">
-                            <img src="img/gato1.jpg" alt="Mia">
-                        </div>
-
+                    <article class="pet-card-horizontal"
+                        data-species="Gato"
+                        data-habits="Muito vocal, 'conversa' o tempo todo. Adora petiscos de sachê e brinquedos com penas."
+                        data-story="Foi abandonada na porta de uma clínica veterinária em uma noite chuvosa, dentro de uma caixa."
+                        data-images='["./Imagens/animais/04.png", "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8"]'>
+                        <button class="favorite-btn"><i class="bi bi-heart"></i></button>
+                        <div class="pet-image"><img src="./Imagens/animais/04.png" alt="Calíope"></div>
                         <div class="pet-info">
-
-                            <h3>Mia</h3>
-
-                            <p>
-                                <strong>Idade:</strong> 1 ano
-                            </p>
-
-                            <p>
-                                <strong>Raça:</strong> Persa
-                            </p>
-
+                            <h3>Calíope</h3>
+                            <p><strong>Idade:</strong> 3 anos</p>
+                            <p><strong>Raça:</strong> Maine Coon</p>
                         </div>
-
                     </article>
-                    <!-- CARD 5-->
-                    <article class="pet-card-horizontal">
-    
-                        <button class="favorite-btn">
-                            <i class="bi bi-heart"></i>
-                        </button>
-    
-                        <div class="pet-image">
-                            <img src="img/gato1.jpg" alt="Mia">
-                        </div>
-    
+
+                    <article class="pet-card-horizontal"
+                        data-species="Cachorro"
+                        data-habits="Calmo, adora passeios curtos e passa horas roendo ossinhos de nylon. Ideal para apartamento."
+                        data-story="O antigo tutor faleceu e os familiares não puderam ficar com ele. Veio parar no abrigo muito triste, mas já está pronto para recomeçar."
+                        data-images='["./Imagens/animais/05.png", "https://images.unsplash.com/photo-1537151608804-ea2d116961d7"]'>
+                        <button class="favorite-btn"><i class="bi bi-heart"></i></button>
+                        <div class="pet-image"><img src="./Imagens/animais/05.png" alt="Bisteca"></div>
                         <div class="pet-info">
-    
-                            <h3>Mia</h3>
-    
-                            <p>
-                                <strong>Idade:</strong> 1 ano
-                            </p>
-    
-                            <p>
-                                <strong>Raça:</strong> Persa
-                            </p>
-    
+                            <h3>Bisteca</h3>
+                            <p><strong>Idade:</strong> 6 anos</p>
+                            <p><strong>Raça:</strong> Cocker Spaniel</p>
                         </div>
-    
                     </article>
-                    <!-- CARD 6-->
-                    <article class="pet-card-horizontal">
-    
-                        <button class="favorite-btn">
-                            <i class="bi bi-heart"></i>
-                        </button>
-    
-                        <div class="pet-image">
-                            <img src="img/gato1.jpg" alt="Mia">
-                        </div>
-    
+
+                    <article class="pet-card-horizontal"
+                        data-species="Gato"
+                        data-habits="Gosta de ficar observando o movimento pela janela, é muito independente mas aceita carinho no queixo."
+                        data-story="Foi resgatado junto com seus irmãos debaixo de um viaduto movimentado. Foi o único que sobreviveu."
+                        data-images='["./Imagens/animais/06.png", "https://images.unsplash.com/photo-1543852786-1cf6624b9987"]'>
+                        <button class="favorite-btn"><i class="bi bi-heart"></i></button>
+                        <div class="pet-image"><img src="./Imagens/animais/06.png" alt="Max"></div>
                         <div class="pet-info">
-    
-                            <h3>Mia</h3>
-    
-                            <p>
-                                <strong>Idade:</strong> 1 ano
-                            </p>
-    
-                            <p>
-                                <strong>Raça:</strong> Persa
-                            </p>
-    
+                            <h3>Max</h3>
+                            <p><strong>Idade:</strong> 1 ano</p>
+                            <p><strong>Raça:</strong> Persa</p>
                         </div>
-    
                     </article>
                 </section>
-
             </div>
 
-            <!-- Maus Tratos -->
             <div class="tab-pane fade" id="MausTratos">
-
                 <h1>Maus-Tratos</h1>
-
-                <p>
-                    Conteúdo de Maus-Tratos.
-                </p>
-
+                <p>Conteúdo de Maus-Tratos.</p>
             </div>
 
-            <!-- RESGATE -->
             <div class="tab-pane fade" id="resgate">
-
                 <h1>Resgate</h1>
-
-                <p>
-                    Conteúdo de resgate.
-                </p>
-
+                <p>Conteúdo de resgate.</p>
             </div>
 
-            <!-- CASTRAÇÃO -->
             <div class="tab-pane fade" id="castracao">
-
                 <h1>Castração</h1>
-
-                <p>
-                    Conteúdo de castração.
-                </p>
-
+                <p>Conteúdo de castração.</p>
             </div>
 
         </div>
-
     </main>
 
-    <!-- Bootstrap -->
+    <div class="modal fade" id="petModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 20px; overflow: hidden;">
+                
+                <div id="petCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" id="carouselImagesContainer">
+                        </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#petCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#petCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+                    </button>
+                </div>
+                
+                <div class="modal-body p-4 p-md-5 bg-white position-relative">
+                    
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h2 id="modalPetName" class="fw-bold mb-0 text-dark"></h2>
+                        <span id="modalPetSpecies" class="badge bg-primary rounded-pill px-3 py-2 fs-6 shadow-sm"></span>
+                    </div>
+                    
+                    <div class="d-flex gap-4 mb-4 text-secondary fw-medium border-bottom pb-3">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="bi bi-calendar3 text-primary fs-5"></i>
+                            <span id="modalPetAge"></span>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="bi bi-tag text-primary fs-5"></i>
+                            <span id="modalPetBreed"></span>
+                        </div>
+                    </div>
+
+                    <h5 class="fw-bold text-dark"><i class="bi bi-controller text-primary me-2"></i> Hábitos</h5>
+                    <p id="modalPetHabits" class="text-secondary mb-4 lh-lg"></p>
+
+                    <h5 class="fw-bold text-dark"><i class="bi bi-truck text-primary me-2"></i> Como foi resgatado?</h5>
+                    <p id="modalPetStory" class="text-secondary mb-4 lh-lg"></p>
+                    
+                    <div class="d-grid mt-4">
+                        <button type="button" class="btn btn-success btn-lg rounded-pill fw-bold shadow-sm p-3 btn-adocao">
+                            <i class="bi bi-house-heart me-2"></i> Quero dar um lar!
+                        </button>
+                    </div>
+                </div>
+                
+                <button type="button" class="btn-close position-absolute top-0 end-0 m-3 bg-white p-2 shadow-sm rounded-circle z-3" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>
