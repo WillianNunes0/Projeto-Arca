@@ -104,7 +104,7 @@
                         data-species="Cachorro"
                         data-habits="Super dócil, adora crianças e ama deitar no sofá recebendo carinho na barriga."
                         data-story="Resgatada de uma situação de maus-tratos extremos. Ela precisou de meses de reabilitação, mas nunca perdeu a doçura."
-                        data-images='["./Imagens/animais/03.png", "https://images.unsplash.com/photo-1552053831-71594a27632d"]'>
+                        data-images='["./Imagens/animais/03.png", "./Imagens/animais/03-2.png"]'>
                         <button class="favorite-btn"><i class="bi bi-heart"></i></button>
                         <div class="pet-image"><img src="./Imagens/animais/03.png" alt="Princesa"></div>
                         <div class="pet-info">
@@ -158,19 +158,225 @@
                 </section>
             </div>
 
-            <div class="tab-pane fade" id="MausTratos">
-                <h1>Maus-Tratos</h1>
-                <p>Conteúdo de Maus-Tratos.</p>
+<div class="tab-pane fade" id="MausTratos">
+                <div class="container py-4">
+                    <div class="d-flex align-items-center mb-4">
+                        <h2 class="fw-bold text-primary mb-0"><i class="bi bi-bandaid me-2"></i>Denunciar Maus-Tratos</h2>
+                    </div>
+
+                    <div class="alert alert-warning border-0 shadow-sm" role="alert">
+                        <i class="bi bi-exclamation-triangle-fill me-2 text-warning"></i>
+                        <strong>Atenção:</strong> Maus-tratos a animais é crime (Lei nº 9.605/98). Se o animal estiver em risco iminente de morte ou a agressão estiver acontecendo agora, ligue imediatamente para a polícia (190).
+                    </div>
+
+                    <div class="card shadow-sm border-0 rounded-4">
+                        <div class="card-body p-4 p-md-5">
+                            <p class="text-muted mb-4">Sua denúncia é fundamental para salvarmos vidas. Preencha o máximo de informações possíveis. Você pode optar por manter o anonimato.</p>
+                            
+                            <form action="#" method="POST">
+                                <div class="mb-4">
+                                    <label for="descricaoCrime" class="form-label fw-medium">Descreva a situação detalhadamente <span class="text-danger">*</span></label>
+                                    <textarea class="form-control bg-light" id="descricaoCrime" rows="4" placeholder="O que está acontecendo com o animal? Há quanto tempo essa situação ocorre? Descreva o estado do animal." required></textarea>
+                                </div>
+
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-7">
+                                        <label for="enderecoCrime" class="form-label fw-medium">Endereço da ocorrência <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control bg-light" id="enderecoCrime" placeholder="Rua, Número, Bairro, CEP" required>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <label for="referenciaCrime" class="form-label fw-medium">Ponto de Referência</label>
+                                        <input type="text" class="form-control bg-light" id="referenciaCrime" placeholder="Ex: Próximo ao supermercado...">
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="evidenciasCrime" class="form-label fw-medium">Anexar Provas (Fotos ou Vídeos)</label>
+                                    <input class="form-control bg-light" type="file" id="evidenciasCrime" multiple accept="image/*,video/*">
+                                    <div class="form-text">Envie imagens nítidas do animal e, se possível, do agressor ou do local.</div>
+                                </div>
+
+                                <div class="form-check form-switch mb-4 mt-2">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="denunciaAnonima" checked>
+                                    <label class="form-check-label fw-medium" for="denunciaAnonima">Quero que minha denúncia seja anônima</label>
+                                </div>
+
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <button type="submit" class="btn btn-primary px-5 py-2 fw-bold rounded-pill shadow-sm">
+                                        <i class="bi bi-send me-2"></i> Enviar Denúncia
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="tab-pane fade" id="resgate">
-                <h1>Resgate</h1>
-                <p>Conteúdo de resgate.</p>
+                <div class="container py-4">
+                    <div class="d-flex align-items-center mb-4">
+                        <h2 class="fw-bold text-primary mb-0"><i class="bi bi-truck me-2"></i>Solicitar Resgate</h2>
+                    </div>
+
+                    <p class="text-secondary mb-4 fs-5">Encontrou um animal ferido, doente ou em situação de abandono extremo? Nossa equipe pode ajudar. Preencha os dados abaixo para acionar nosso time de resgate.</p>
+
+                    <div class="card shadow-sm border-0 rounded-4">
+                        <div class="card-body p-4 p-md-5">
+                            <form action="#" method="POST">
+                                <h5 class="fw-bold text-dark mb-3"><i class="bi bi-info-circle text-primary me-2"></i>Sobre o Animal</h5>
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-6">
+                                        <label for="especieResgate" class="form-label fw-medium">Espécie <span class="text-danger">*</span></label>
+                                        <select class="form-select bg-light" id="especieResgate" required>
+                                            <option value="" selected disabled>Selecione...</option>
+                                            <option value="Cachorro">Cachorro</option>
+                                            <option value="Gato">Gato</option>
+                                            <option value="Silvestre">Animal Silvestre</option>
+                                            <option value="Outro">Outro (especificar na descrição)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="urgenciaResgate" class="form-label fw-medium">Grau de Urgência <span class="text-danger">*</span></label>
+                                        <select class="form-select bg-light" id="urgenciaResgate" required>
+                                            <option value="" selected disabled>Avalie a situação...</option>
+                                            <option value="Baixa">Baixa - Animal aparentemente saudável, vagando</option>
+                                            <option value="Media">Média - Animal magro, assustado ou com ferimento leve</option>
+                                            <option value="Alta">Alta - Atropelado, sangrando ou risco iminente de morte</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="condicaoAnimal" class="form-label fw-medium">Condição do animal e detalhes <span class="text-danger">*</span></label>
+                                    <textarea class="form-control bg-light" id="condicaoAnimal" rows="3" placeholder="Descreva a pelagem, tamanho, comportamento (agressivo/dócil) e o ferimento, se houver..." required></textarea>
+                                </div>
+
+                                <hr class="my-4 text-muted">
+
+                                <h5 class="fw-bold text-dark mb-3"><i class="bi bi-geo-alt text-primary me-2"></i>Localização e Contato</h5>
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-8">
+                                        <label for="enderecoResgate" class="form-label fw-medium">Endereço Exato ou Coordenadas <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control bg-light" id="enderecoResgate" placeholder="Onde o animal está agora?" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="telefoneSolicitante" class="form-label fw-medium">Seu WhatsApp (para contato) <span class="text-danger">*</span></label>
+                                        <input type="tel" class="form-control bg-light" id="telefoneSolicitante" placeholder="(00) 00000-0000" required>
+                                    </div>
+                                </div>
+
+                                <div class="alert alert-info border-0 bg-light text-secondary mb-4">
+                                    <i class="bi bi-clock-history me-2"></i> Nossa equipe é voluntária e os resgates dependem da disponibilidade de vagas nos lares temporários e viaturas. Entraremos em contato o mais rápido possível.
+                                </div>
+
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <button type="submit" class="btn btn-primary px-5 py-2 fw-bold rounded-pill shadow-sm">
+                                        <i class="bi bi-life-preserver me-2"></i> Solicitar Resgate
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
 
+<!-- Aba Castração -->
             <div class="tab-pane fade" id="castracao">
-                <h1>Castração</h1>
-                <p>Conteúdo de castração.</p>
+                <div class="container py-4">
+                    <div class="d-flex align-items-center mb-4">
+                        <h2 class="fw-bold text-primary mb-0"><i class="bi bi-heart-pulse me-2"></i>Solicitação de Castração</h2>
+                    </div>
+
+                    <p class="text-secondary mb-4 fs-5">Preencha o formulário abaixo para registrar o interesse na castração do seu pet.</p>
+
+                    <div class="card shadow-sm border-0 rounded-4">
+                        <div class="card-body p-4 p-md-5">
+                            <form action="#" method="POST">
+                                <div class="row g-4">
+                                    
+                                    <!-- Coluna: Dados do Tutor -->
+                                    <div class="col-md-6">
+                                        <div class="p-4 border rounded-4 bg-light h-100 shadow-sm">
+                                            <h4 class="fw-bold text-dark text-center mb-4">Dados do Tutor</h4>
+                                            
+                                            <div class="mb-3">
+                                                <label for="nomeTutor" class="form-label fw-medium">Nome Completo</label>
+                                                <input type="text" class="form-control" id="nomeTutor" required>
+                                            </div>
+                                            
+                                            <div class="mb-3">
+                                                <label for="telefoneTutor" class="form-label fw-medium">Telefone :</label>
+                                                <input type="tel" class="form-control" id="telefoneTutor" required>
+                                            </div>
+                                            
+                                            <div class="mb-3">
+                                                <label for="emailTutor" class="form-label fw-medium">Email</label>
+                                                <input type="email" class="form-control" id="emailTutor" required>
+                                            </div>
+                                            
+                                            <div class="mb-3">
+                                                <label for="comprovanteResidencia" class="form-label fw-medium">Comprovante de Residencia</label>
+                                                <input class="form-control" type="file" id="comprovanteResidencia" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                  
+                                    <div class="col-md-6">
+                                        <div class="p-4 border rounded-4 bg-light h-100 shadow-sm">
+                                            <h4 class="fw-bold text-dark text-center mb-4">Dados do Animal</h4>
+                                            
+                                            <div class="mb-3">
+                                                <label for="nomeAnimal" class="form-label fw-medium">Nome:</label>
+                                                <input type="text" class="form-control" id="nomeAnimal" required>
+                                            </div>
+                                            
+                                            <div class="mb-3">
+                                                <label for="especieAnimal" class="form-label fw-medium">Espécie (cachorro ou gato):</label>
+                                                <select class="form-select" id="especieAnimal" required>
+                                                    <option value="" selected disabled>Selecione...</option>
+                                                    <option value="Cachorro">Cachorro</option>
+                                                    <option value="Gato">Gato</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="mb-3">
+                                                <label for="sexoAnimal" class="form-label fw-medium">Sexo (masculino ou feminino):</label>
+                                                <select class="form-select" id="sexoAnimal" required>
+                                                    <option value="" selected disabled>Selecione...</option>
+                                                    <option value="Masculino">Masculino</option>
+                                                    <option value="Feminino">Feminino</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="mb-3">
+                                                <label for="idadeAnimal" class="form-label fw-medium">Idade do Animal:</label>
+                                                <input type="text" class="form-control" id="idadeAnimal" required>
+                                            </div>
+                                            
+                                            <div class="mb-3">
+                                                <label for="fotoAnimal" class="form-label fw-medium">Foto do Animal:</label>
+                                                <input class="form-control" type="file" id="fotoAnimal" accept="image/*" required>
+                                            </div>
+                                            
+                                            <div class="mb-3">
+                                                <label for="observacaoAnimal" class="form-label fw-medium">Observação</label>
+                                                <textarea class="form-control" id="observacaoAnimal" rows="2"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                               
+                                <div class="d-flex justify-content-center mt-5">
+                                    <button type="submit" class="btn btn-primary px-5 py-2 fw-bold shadow-sm" style="min-width: 200px; border-radius: 8px;">
+                                        Enviar
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -216,7 +422,7 @@
                     <p id="modalPetStory" class="text-secondary mb-4 lh-lg"></p>
                     
                     <div class="d-grid mt-4">
-                        <button type="button" class="btn btn-success btn-lg rounded-pill fw-bold shadow-sm p-3 btn-adocao">
+                        <button type="button" class="btn btn-primary btn-lg rounded-pill fw-bold shadow-sm p-3 btn-adocao">
                             <i class="bi bi-house-heart me-2"></i> Quero dar um lar!
                         </button>
                     </div>
@@ -231,3 +437,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
