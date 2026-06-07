@@ -139,3 +139,83 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
+// ==========================================================================
+// 4. CURTIDAS DOS ANIMAIS
+// ==========================================================================
+document.addEventListener('DOMContentLoaded', () => {
+    let petsCurtidos = [];
+
+    const listaFavoritosUI = document.getElementById('listaFavoritos');
+    const contadorFavoritosUI = document.getElementById('contadorFavoritos');
+
+    function atualizarMenuFavoritos() {
+        if (!listaFavoritosUI || !contadorFavoritosUI) return;
+
+        contadorFavoritosUI.textContent = petsCurtidos.length;
+        listaFavoritosUI.innerHTML = '';
+
+        if (petsCurtidos.length === 0) {
+            listaFavoritosUI.innerHTML =
+                '<li><span class="dropdown-item text-muted">Nenhum pet curtido ainda.</span></li>';
+            return;
+        }
+
+        petsCurtidos.forEach(nome => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <span class="dropdown-item fw-medium">
+                    <i class="bi bi-check2 text-success me-2"></i>
+                    ${nome}
+                </span>
+            `;
+            listaFavoritosUI.appendChild(li);
+        });
+    }
+
+    document.addEventListener('click', (evento) => {
+        const botao = evento.target.closest('.favorite-btn');
+
+        if (!botao) return;
+
+        evento.preventDefault();
+        evento.stopPropagation();
+
+        const cardPai = botao.closest('.pet-card-horizontal');
+        if (!cardPai) return;
+
+        const tituloPet = cardPai.querySelector('.pet-info h3');
+        const nomeDoPet = tituloPet
+            ? tituloPet.textContent.trim()
+            : 'Pet Desconhecido';
+
+        const icone = botao.querySelector('i');
+        if (!icone) return;
+
+        botao.classList.toggle('liked');
+
+        if (botao.classList.contains('liked')) {
+
+            icone.classList.remove('bi-heart');
+            icone.classList.add('bi-heart-fill');
+
+            if (!petsCurtidos.includes(nomeDoPet)) {
+                petsCurtidos.push(nomeDoPet);
+            }
+
+        } else {
+
+            icone.classList.remove('bi-heart-fill');
+            icone.classList.add('bi-heart');
+
+            petsCurtidos = petsCurtidos.filter(
+                nome => nome !== nomeDoPet
+            );
+        }
+
+        atualizarMenuFavoritos();
+    });
+
+    atualizarMenuFavoritos();
+});

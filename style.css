@@ -76,7 +76,7 @@ body {
     font-family: var(--font-family-base);
     color: var(--text-dark);
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: auto;
     letter-spacing: -0.01em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -101,7 +101,9 @@ a:hover { color: var(--primary-dark); }
 
 .navbar-arca {
 
-    height: 150px;
+    min-height: 90px;
+    height: auto;
+    padding: 15px 0;
 
     background: var(--primary-dark);
 
@@ -293,8 +295,18 @@ a:hover { color: var(--primary-dark); }
 ==========================================================================*/
 .main-content {
     margin-left: 264px;
-    padding: 40px;
-    padding-top: 50px;
+    padding: 30px;
+    width: calc(100% - 264px);
+}
+
+@media (max-width: 991px) {
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+
 }
 
 /*==========================================================================
@@ -304,16 +316,24 @@ a:hover { color: var(--primary-dark); }
 .menu-toggle {
     display: none;
     position: absolute;
-    right: 16px;
-    border: 1px solid rgba(255,255,255,0.15);
-    background: rgba(255,255,255,0.10);
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: rgba(255,255,255,.15);
     color: white;
-    font-size: var(--font-size-toggle);
-    cursor: pointer;
-    border-radius: var(--r-sm);
-    padding: 5px 10px;
-    line-height: 1;
-    transition: background .2s ease, border-color .2s ease;
+
+    font-size: 1.8rem;
+    z-index: 1200;
+
+    justify-content: center;
+    align-items: center;
 }
  
 .menu-toggle:hover {
@@ -325,6 +345,8 @@ a:hover { color: var(--primary-dark); }
 ==========================================================================*/
 
 .mobile-menu {
+    position: relative;
+    z-index: 1201;
     background: rgba(255,255,255,0.96);
     backdrop-filter: blur(24px);
     padding: 16px;
@@ -509,7 +531,9 @@ LISTA DE PETS
     
     padding: 20px 0;
 }
-
+.pets-list > .d-flex {
+    grid-column: 1 / -1;
+}
 /*==========================================================================
 CARD HORIZONTAL
 ==========================================================================*/
@@ -533,7 +557,36 @@ CARD HORIZONTAL
     cursor: pointer;
     overflow: hidden;
 }
- 
+@media (max-width: 992px) {
+
+    .pets-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+@media (max-width: 768px) {
+
+    .pets-list {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .pet-card-horizontal {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .pet-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .pet-info {
+        align-items: center;
+    }
+
+}
 /* Subtle gradient overlay */
 .pet-card-horizontal::before {
     content: '';
@@ -613,36 +666,55 @@ BOTÃO CURTIR
 
 .favorite-btn {
     position: absolute;
-    top: 13px;
-    right: 13px;
-    width: 38px;
-    height: 38px;
-    border: 1px solid rgba(255,77,109,0.14);
-    border-radius: 50%;
-    background: rgba(255,255,255,0.95);
-    display: flex;
+    top: 15px;
+    right: 15px;
+    z-index: 10; 
+    background: transparent;
+    border: none;
+    font-size: 1.6rem;
+    color: #adb5bd;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    color: #ff4d6d;
-    font-size: 0.9rem;
-    box-shadow: var(--shadow-xs);
-    transition:
-        transform .3s var(--ease-spring),
-        background .22s ease,
-        color .22s ease,
-        box-shadow .22s ease,
-        border-color .22s ease;
-    z-index: 2;
+    padding: 8px;
 }
- 
+
 .favorite-btn:hover {
-    transform: scale(1.18);
-    background: #ff4d6d;
-    color: white;
-    box-shadow: 0 6px 18px rgba(255,77,109,0.36);
-    border-color: transparent;
+    color: #ff8a8a;
+    transform: scale(1.1); 
+    transition: all 0.2s ease;
 }
+
+/* --- Estado Curtido  --- */
+.favorite-btn.liked {
+    color: #ff3b3b; 
+
+    animation: heartPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    filter: drop-shadow(0 4px 8px rgba(255, 59, 59, 0.4)); 
+}
+
+/* --- A Animação de "Pulo" (Pop) --- */
+@keyframes heartPop {
+    0% {
+        transform: scale(1);
+    }
+    40% {
+        transform: scale(1.4); 
+    }
+    70% {
+        transform: scale(0.9); 
+    }
+    100% {
+        transform: scale(1); 
+}
+}
+/* Efeito ao clicar e segurar o botão */
+.favorite-btn:active {
+    transform: scale(0.8);
+}
+
 /*==========================================================================
    17. RESPONSIVO
 ==========================================================================*/
@@ -830,4 +902,32 @@ body::-webkit-scrollbar { display: none; }
         height: calc(100vh - var(--navbar-h) - 80px);
     }
 }
- 
+@media (max-width: 768px) {
+
+    body {
+        overflow-y: auto;
+    }
+
+    .container,
+    .container-fluid {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .row {
+        --bs-gutter-x: 1rem;
+    }
+
+    .card-body {
+        padding: 1.25rem !important;
+    }
+
+}
