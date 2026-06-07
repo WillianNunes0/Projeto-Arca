@@ -1,28 +1,62 @@
 /*==========================================================================
-   1. VARIÁVEIS E CONFIGURAÇÕES GERAIS
+   1. VARIÁVEIS
 ==========================================================================*/
 
 :root {
     /* Cores */
-    --primary: #0474C4;
-    --primary-dark: #215696;
-    --secondary: #5379AE;
-    --light-blue: #A8C4EC;
-    --bg-light: #F0F4FA;
-    --bg-dark: #262B40;
-    --text-dark: #1A2A30;
-    --accent: #F2A65A;
-    --accent-hover: #D98C46;
-    --error: #E63946;
-    --success: #2A9D8F;
+    --primary:         #0474C4;
+    --primary-dark:    #215696;
+    --secondary:       #5379AE;
+    --light-blue:      #B4CCEC;
+    --bg-light:        #F1F6FC;
+    --bg-dark:         #18203A;
+    --text-dark:       #101828;
+    --text-muted:      #64748B;
+    --accent:          #F2A65A;
+    --accent-hover:    #D98C46;
+    --error:           #E63946;
+    --success:         #10B981;
 
-    /* Fontes */
-    --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-    /* Tamanhos de Fonte */
-    --font-size-icon: 1.1rem;      /* Utilizado em .sidebar-link i */
-    --font-size-toggle: 2rem;      /* Utilizado em .menu-toggle */
-    --font-size-input: .96rem;     /* Utilizado em .form-control */
+    /* ── Bootstrap override ── */
+    --bs-primary:      #0474C4;
+    --bs-primary-rgb:  4, 116, 196;
+ 
+    /* ── Glass ── */
+    --glass:           rgba(255, 255, 255, 0.78);
+    --glass-border:    rgba(255, 255, 255, 0.65);
+    --glass-blur:      blur(22px) saturate(1.5);
+ 
+    /* ── Sombras ── */
+    --shadow-xs: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-sm: 0 2px 10px rgba(4,116,196,0.08), 0 1px 4px rgba(0,0,0,0.04);
+    --shadow-md: 0 8px 28px rgba(4,116,196,0.12), 0 3px 8px rgba(0,0,0,0.06);
+    --shadow-lg: 0 20px 52px rgba(4,116,196,0.15), 0 8px 18px rgba(0,0,0,0.08);
+    --shadow-btn:0 8px 22px rgba(4,116,196,0.32);
+    --shadow-btn-hover: 0 14px 34px rgba(4,116,196,0.42);
+ 
+    /* ── Raios ── */
+    --r-xs:   8px;
+    --r-sm:   12px;
+    --r-md:   16px;
+    --r-lg:   22px;
+    --r-xl:   28px;
+    --r-pill: 999px;
+ 
+    /* ── Easing ── */
+    --ease:        cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-out:    cubic-bezier(0.0, 0.0, 0.2, 1);
+ 
+    /* ── Fonte ── */
+    --font-family-base: 'Outfit', 'Segoe UI', system-ui, sans-serif;
+ 
+    /* ── Tamanhos ── */
+    --font-size-icon:   1.05rem;
+    --font-size-toggle: 1.6rem;
+    --font-size-input:  0.9375rem;
+ 
+    /* ── Layout ── */
+    --navbar-h: 82px;
 }
 
 /*==========================================================================
@@ -36,16 +70,17 @@ body {
         #ffffff
     );
 
+    background-attachment: fixed;
     min-height: 100vh;
-
     margin: 0;
-
     font-family: var(--font-family-base);
-
+    color: var(--text-dark);
     overflow-x: hidden;
     overflow-y: hidden;
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
-
 
 /*==========================================================================
    3. LINKS
@@ -53,17 +88,12 @@ body {
 
 a {
     color: var(--primary);
-
     text-decoration: none;
-
-    transition: color .3s ease;
-
     font-weight: 500;
+    transition: color .22s var(--ease);
 }
-
-a:hover {
-    color: var(--primary-dark);
-}
+ 
+a:hover { color: var(--primary-dark); }
 
 /*==========================================================================
    4. NAVBAR
@@ -132,55 +162,28 @@ a:hover {
 ==========================================================================*/
 
 .active-slot {
-
     position: fixed;
-
-    top: 150px;
-
+    top: var(--navbar-h);
     left: 24px;
-
-    width: 220px;
-
+    width: 224px;
     z-index: 1200;
 }
-
+ 
 .active-slot::before {
-
     content: "";
-
     position: absolute;
-
-    top: -40px;
-
+    top: -28px;
     left: 0;
-
     width: 100%;
-
-    height: 40px;
-
-    background: var(--primary-dark);
-
-    border-radius: 0 0 18px 18px;
-
-    animation:
-        navbarExpand .6s ease;
+    height: 28px;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #243158 100%);
+    border-radius: 0 0 20px 20px;
+    animation: navbarExpand .5s var(--ease);
 }
-
+ 
 @keyframes navbarExpand {
-
-    from {
-
-        opacity: 0;
-
-            transform: translateY(-16px);
-    }
-
-    to {
-
-        opacity: 1;
-
-            transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 /*==========================================================================
@@ -276,35 +279,22 @@ a:hover {
 ==========================================================================*/
 
 .active-slot .sidebar-link {
-
     width: 100%;
-
-    color: white;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--primary),
-            var(--primary-dark)
-        );
-
-    box-shadow:
-        0 18px 34px rgba(0,0,0,.20);
-
-    border-radius: 20px;
+    color: #fff;
+    border-color: transparent;
+    border-radius: var(--r-xl);
+    box-shadow: 0 20px 42px rgba(0,0,0,0.24);
 }
+ 
+.active-slot .sidebar-link::before { opacity: 1; }
 
 /*==========================================================================
    11. CONTEÚDO
 ==========================================================================*/
-
 .main-content {
-
-    margin-left: 260px;
-
+    margin-left: 264px;
     padding: 40px;
-
-    padding-top: 60px;
+    padding-top: 50px;
 }
 
 /*==========================================================================
@@ -312,183 +302,198 @@ a:hover {
 ==========================================================================*/
 
 .menu-toggle {
-
     display: none;
-
     position: absolute;
-
-    right: 12px;
-
-    border: none;
-
-    background: transparent;
-
+    right: 16px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.10);
     color: white;
-
     font-size: var(--font-size-toggle);
-
     cursor: pointer;
+    border-radius: var(--r-sm);
+    padding: 5px 10px;
+    line-height: 1;
+    transition: background .2s ease, border-color .2s ease;
 }
-
+ 
+.menu-toggle:hover {
+    background: rgba(255,255,255,0.18);
+    border-color: rgba(255,255,255,0.28);
+}
 /*==========================================================================
    13. MENU MOBILE
 ==========================================================================*/
 
 .mobile-menu {
-
-    background: white;
-
-    padding: 18px;
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.08);
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(24px);
+    padding: 16px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    border-bottom: 1px solid rgba(4,116,196,0.08);
 }
-
-.mobile-menu .nav-link {
-
-    width: 100%;
-
-    justify-content: center;
-}
+ 
+.mobile-menu .nav-link { width: 100%; justify-content: center; }
 
 /*==========================================================================
    14. LOGIN
 ==========================================================================*/
 
-.login-section {
-
-    padding-top: 5vh;
-}
-
+.login-section { padding-top: 6vh; }
+ 
 .card-login {
-
-    min-height: 52px;
-
-    max-height: 105vh;
-
-    display: flex;
-
-    flex-direction: column;
-
+    background: var(--glass);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--r-xl);
+    box-shadow:
+        0 0 0 1px rgba(4,116,196,0.05),
+        0 4px 8px  rgba(0,0,0,0.04),
+        0 24px 52px rgba(4,116,196,0.11);
+    animation: fadeSlideUp .5s var(--ease) both;
+    transition: transform .3s var(--ease), box-shadow .3s var(--ease);
     overflow: hidden;
-
-    background:
-        rgba(255,255,255,.88);
-
-    backdrop-filter: blur(10px);
-
-    border:
-        1.5px solid rgba(4,116,196,.25);
-
-    border-radius: 24px;
-
-    box-shadow:
-        0 8px 32px rgba(31,38,135,.12),
-        0 2px 8px rgba(0,0,0,.04);
-
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
 }
-
+ 
 .card-login:hover {
-
-    transform: translateY(-2px);
-
+    transform: translateY(-3px);
     box-shadow:
-        0 12px 28px rgba(31,38,135,.14),
-        0 4px 10px rgba(0,0,0,.05);
+        0 0 0 1px rgba(4,116,196,0.08),
+        0 8px 18px  rgba(0,0,0,0.06),
+        0 36px 64px rgba(4,116,196,0.14);
 }
+ 
+.card-login .form-label {
+    font-weight: 600;
+    font-size: 0.775rem;
+    text-transform: uppercase;
+    letter-spacing: 0.085em;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    display: block;
+}
+ 
+.card-footer {
+    background: rgba(255,255,255,0.92) !important;
+    border-top: 1px solid rgba(4,116,196,0.07) !important;
+    backdrop-filter: blur(10px);
+}
+ 
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+ 
+/* Link abaixo do card (esqueceu senha, voltar) */
+.esqueceu-senha {
+    text-align: center;
+    margin-top: 10px !important;
+    font-size: 0.875rem;
+    opacity: 0.85;
+    transition: opacity .2s ease;
+}
+ 
+.esqueceu-senha:hover { opacity: 1; }
 
 /*==========================================================================
    15. BOTÕES
 ==========================================================================*/
-
 .btn-primary {
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--primary),
-            var(--primary-dark)
-        );
-
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     border: none;
-
-    border-radius: 18px;
-
-    padding: 12px 22px;
-
-    font-weight: 600;
-
-    box-shadow:
-        0 8px 18px rgba(4,116,196,.18);
-
+    border-radius: var(--r-pill);
+    padding: 12px 26px;
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    letter-spacing: 0.02em;
+    box-shadow: var(--shadow-btn);
+    position: relative;
+    overflow: hidden;
     transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+        transform  .3s var(--ease-spring),
+        box-shadow .28s ease,
+        filter     .2s ease;
 }
-
+ 
+/* Shimmer highlight */
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.16) 0%, transparent 60%);
+    border-radius: inherit;
+    pointer-events: none;
+}
+ 
 .btn-primary:hover {
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 12px 24px rgba(4,116,196,.24);
+    transform: translateY(-2px) scale(1.015);
+    box-shadow: var(--shadow-btn-hover);
+    filter: brightness(1.06);
 }
+ 
+.btn-primary:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: var(--shadow-md);
+}
+ 
 
 /*==========================================================================
    16. INPUTS
 ==========================================================================*/
 
 .form-control {
-
-    border:
-        1.8px solid #b7c9e6;
-
-    border-radius: 14px;
-
-    padding: 13px 15px;
-
-    background-color:
-        rgba(255,255,255,.95);
-
+    border: 1.5px solid rgba(4,116,196,0.14);
+    border-radius: var(--r-md);
+    padding: 12px 16px;
+    background-color: rgba(255,255,255,0.88);
     font-size: var(--font-size-input);
-
+    font-family: var(--font-family-base);
     color: var(--text-dark);
-
     transition:
-        border-color .25s ease,
-        box-shadow .25s ease,
-        transform .2s ease;
+        border-color .22s ease,
+        box-shadow   .22s ease,
+        background   .2s  ease;
 }
-
+ 
 .form-control:hover {
-
-    border-color: var(--secondary);
+    border-color: rgba(4,116,196,0.28);
+    background: rgba(255,255,255,0.96);
 }
-
+ 
 .form-control:focus {
-
     border-color: var(--primary);
-
-    box-shadow:
-        0 0 0 4px rgba(4,116,196,.14);
-
-    background: white;
+    box-shadow: 0 0 0 4px rgba(4,116,196,0.13);
+    background: #ffffff;
+    outline: none;
 }
-
+ 
+.form-control::placeholder {
+    color: #9faec0;
+    font-size: 0.9rem;
+}
+ 
+.form-select {
+    border: 1.5px solid rgba(4,116,196,0.14);
+    border-radius: var(--r-md);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-input);
+    background-color: rgba(255,255,255,0.88);
+    transition: border-color .22s ease, box-shadow .22s ease;
+}
+ 
+.form-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(4,116,196,0.13);
+}
+ 
 .form-scroll {
-
     flex: 1;
-
     overflow-y: auto;
-
     min-height: 0;
-
     padding-right: 6px;
 }
-
+ 
 
 /*==========================================================================
 LISTA DE PETS
@@ -510,42 +515,39 @@ CARD HORIZONTAL
 ==========================================================================*/
 
 .pet-card-horizontal {
-    
     position: relative;
-    
     display: flex;
-    
     align-items: center;
-    
-    gap: 22px;
-    
+    gap: 18px;
     padding: 18px;
-    
-    border-radius: 24px;
-    
-    background:
-    rgba(255,255,255,.88);
-    
-    backdrop-filter: blur(10px);
-    
-    border:
-    1px solid rgba(4,116,196,.12);
-    
-    box-shadow:
-    0 10px 24px rgba(0,0,0,.08);
-    
+    border-radius: var(--r-lg);
+    background: var(--glass);
+    backdrop-filter: blur(18px) saturate(1.3);
+    -webkit-backdrop-filter: blur(18px) saturate(1.3);
+    border: 1px solid rgba(255,255,255,0.72);
+    box-shadow: var(--shadow-sm);
     transition:
-    transform .3s ease,
-    box-shadow .3s ease;
+        transform .38s var(--ease-spring),
+        box-shadow .3s ease,
+        border-color .25s ease;
     cursor: pointer;
+    overflow: hidden;
 }
-
+ 
+/* Subtle gradient overlay */
+.pet-card-horizontal::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(4,116,196,0.025) 0%, transparent 55%);
+    border-radius: inherit;
+    pointer-events: none;
+}
+ 
 .pet-card-horizontal:hover {
-    
-    transform: translateY(-4px);
-    
-    box-shadow:
-    0 16px 32px rgba(0,0,0,.12);
+    transform: translateY(-5px) scale(1.012);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(4,116,196,0.18);
 }
 
 /*==========================================================================
@@ -553,59 +555,56 @@ FOTO
 ==========================================================================*/
 
 .pet-image {
-    width: 140px;
-    height: 140px;
-    border-radius: 20px;
+    width: 128px;
+    height: 128px;
+    border-radius: var(--r-lg);
     overflow: hidden;
     flex-shrink: 0;
-    background-color: #f8f9fa;
-    display: flex;   
-    align-items: center;     
-    justify-content: center;  
+    background: var(--bg-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-xs);
+    border: 2px solid rgba(255,255,255,0.95);
 }
-
+ 
 .pet-image img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    transition: transform .35s ease;
+    transition: transform .45s var(--ease);
 }
-
-.pet-card-horizontal:hover .pet-image img {
-    transform: scale(1.05);
-}
-
+ 
+.pet-card-horizontal:hover .pet-image img { transform: scale(1.09); }
 /*==========================================================================
 INFORMAÇÕES
 ==========================================================================*/
 
 .pet-info {
-    
     display: flex;
-    
     flex-direction: column;
-    
-    gap: 8px;
+    gap: 6px;
+    position: relative;
+    z-index: 1;
 }
-
+ 
 .pet-info h3 {
-    
     margin: 0;
-    
     color: var(--text-dark);
-    
-    font-size: 1.5rem;
-    
+    font-size: 1.3rem;
     font-weight: 700;
+    letter-spacing: -0.025em;
 }
-
+ 
 .pet-info p {
-    
     margin: 0;
-    
-    color: #5d6878;
-    
-    font-size: .96rem;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+ 
+.pet-info p strong {
+    color: var(--text-dark);
+    font-weight: 600;
 }
 
 /*==========================================================================
@@ -613,249 +612,222 @@ BOTÃO CURTIR
 ==========================================================================*/
 
 .favorite-btn {
-    
     position: absolute;
-    
-    top: 16px;
-    
-    right: 16px;
-    
-    width: 42px;
-    
-    height: 42px;
-    
-    border: none;
-    
+    top: 13px;
+    right: 13px;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(255,77,109,0.14);
     border-radius: 50%;
-    
-    background:
-    rgba(255,255,255,.9);
-    
+    background: rgba(255,255,255,0.95);
     display: flex;
-    
     align-items: center;
-    
     justify-content: center;
-    
     cursor: pointer;
-    
     color: #ff4d6d;
-    
-    font-size: 1.1rem;
-    
-    box-shadow:
-    0 4px 12px rgba(0,0,0,.10);
-    
+    font-size: 0.9rem;
+    box-shadow: var(--shadow-xs);
     transition:
-    transform .25s ease,
-    background .25s ease,
-    color .25s ease;
+        transform .3s var(--ease-spring),
+        background .22s ease,
+        color .22s ease,
+        box-shadow .22s ease,
+        border-color .22s ease;
+    z-index: 2;
 }
-
+ 
 .favorite-btn:hover {
-    
-    transform: scale(1.08);
-    
+    transform: scale(1.18);
     background: #ff4d6d;
-    
     color: white;
+    box-shadow: 0 6px 18px rgba(255,77,109,0.36);
+    border-color: transparent;
 }
 /*==========================================================================
    17. RESPONSIVO
 ==========================================================================*/
-
+ 
 @media (max-width: 991px) {
-
-    .active-slot {
-
-        display: none;
-    }
-
-    .sidebar {
-
-        display: none;
-    }
-
+    :root { --navbar-h: 68px; }
+ 
+    .active-slot { display: none; }
+    .sidebar     { display: none; }
+ 
     .main-content {
-
         margin-left: 0;
-
         padding: 20px;
+        padding-top: 24px;
     }
-
-    .menu-toggle {
-
-        display: block;
-    }
-
-    .logo-arca {
-
-        width: 180px;
-    }
-
-    .navbar-arca {
-
-        height: 140px;
-    }
+ 
+    .menu-toggle { display: flex; align-items: center; }
+    .logo-arca   { width: 140px; }
 }
-
+ 
 @media (max-width: 1200px) {
-
-    .pets-list {
-
-        grid-template-columns: repeat(2, 1fr);
-    }
+    .pets-list { grid-template-columns: repeat(2, 1fr); }
 }
-
+ 
 @media (max-width: 768px) {
-
     .pets-list {
-
         grid-template-columns: 1fr;
-
-        gap: 18px;
+        gap: 14px;
     }
-
+ 
     .pet-card-horizontal {
-
         flex-direction: column;
-
         align-items: center;
-
         text-align: center;
-
         padding: 16px;
     }
-
-.pet-image {
-
-    width: 120px;
-
-    height: 120px;
-
-    flex-shrink: 0;
-
-    border-radius: 20px;
-
-    overflow: hidden;
-}
-
+ 
+    .pet-image {
+        width: 110px;
+        height: 110px;
+    }
+ 
     .pet-info {
-
         width: 100%;
-
         align-items: center;
     }
-
-    .pet-info h3 {
-
-        font-size: 1.3rem;
-    }
-
+ 
+    .pet-info h3 { font-size: 1.2rem; }
+ 
     .favorite-btn {
-
-        top: 12px;
-
-        right: 12px;
-
-        width: 38px;
-
-        height: 38px;
+        top: 10px;
+        right: 10px;
+        width: 36px;
+        height: 36px;
     }
 }
-
+ 
 /*==========================================================================
    18. MODAL MODERNO E CARROSSEL
 ==========================================================================*/
-
-.navbar-arca {
-    z-index: 1000;
-}
-
-.modal {
-    z-index: 1060;
-}
-
-.modal-backdrop {
-    z-index: 1050;
-}
-
+ 
+.navbar-arca   { z-index: 1000; }
+.modal         { z-index: 1060; }
+.modal-backdrop{ z-index: 1050; }
+ 
 .modal-content {
     width: 100%;
-    background: #fff;
+    background: #ffffff;
     border: none;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    border-radius: var(--r-xl) !important;
+    box-shadow: 0 28px 72px rgba(0,0,0,0.22), 0 8px 24px rgba(0,0,0,0.10);
+    overflow: hidden;
 }
-
+ 
 .modal-carousel-img {
-    height: 320px;
+    height: 300px;
     object-fit: contain;
     width: 100%;
     display: block;
-    background-color: #ffffff;
+    background: #f5f8ff;
 }
-
-.modal-body {
-    padding: 1.75rem !important;
-}
-
+ 
+.modal-body { padding: 1.75rem !important; }
+ 
 .modal-body h2 {
     font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--text-dark);
 }
-
+ 
 .modal-body h5 {
-    font-size: 1.15rem;
-    margin-bottom: 0.4rem !important;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--text-muted);
+    margin-bottom: 0.45rem !important;
 }
-
+ 
 .modal-body p {
-    margin-bottom: 0.8rem !important;
-    line-height: 1.4 !important;
-    font-size: 0.95rem;
+    margin-bottom: 0.75rem !important;
+    line-height: 1.68 !important;
+    font-size: 0.9375rem;
+    color: #5a6680;
 }
-
-.modal-body .mb-4, 
-.modal-body .mb-3 {
-    margin-bottom: 1rem !important;
-}
-
-.modal-body .mt-4 {
-    margin-top: 1.2rem !important;
-}
-
-.modal-body .pb-3 {
-    padding-bottom: 0.8rem !important;
-}
-
+ 
+.modal-body .mb-4,
+.modal-body .mb-3 { margin-bottom: 1rem !important; }
+.modal-body .mt-4 { margin-top: 1.25rem !important; }
+.modal-body .pb-3 { padding-bottom: 0.8rem !important; }
+ 
 .btn-adocao {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    padding: 0.8rem !important;
-    font-size: 1.1rem;
+    transition: transform .28s var(--ease-spring), box-shadow .25s ease !important;
+    padding: 0.875rem !important;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    border-radius: var(--r-pill) !important;
 }
-
+ 
 .btn-adocao:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(25, 135, 84, 0.3) !important;
+    transform: translateY(-3px) scale(1.01) !important;
+    box-shadow: 0 14px 32px rgba(4,116,196,0.36) !important;
 }
-
+ 
 .modal-content .btn-close {
-    opacity: 0.8;
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    opacity: 0.75;
+    transition: opacity .2s ease, transform .25s var(--ease-spring);
     z-index: 10;
 }
-
+ 
 .modal-content .btn-close:hover {
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1.15) rotate(90deg);
 }
-
+ 
 @media (max-width: 768px) {
-    .modal-carousel-img {
-        height: 250px;
-    }
-    
-    .modal-body {
-        padding: 1.25rem !important;
-    }
-    
+    .modal-carousel-img { height: 220px; }
+    .modal-body { padding: 1.25rem !important; }
 }
+ 
+/*==========================================================================
+   19. SCROLLBAR PERSONALIZADO
+==========================================================================*/
+ 
+/* Oculta a scrollbar nativa do navegador */
+html, body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar { display: none; }
+ 
+/* Área rolável dos formulários (Maus-Tratos, Resgate, Castração) */
+.form-scrollable {
+    height: calc(100vh - var(--navbar-h) - 110px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 4px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) rgba(168,196,236,0.15);
+}
+ 
+.form-scrollable::-webkit-scrollbar { width: 6px; }
+ 
+.form-scrollable::-webkit-scrollbar-track {
+    background: rgba(168,196,236,0.15);
+    border-radius: 12px;
+    margin: 8px 0;
+}
+ 
+.form-scrollable::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
+    border-radius: 12px;
+    border: 1.5px solid rgba(255,255,255,0.55);
+}
+ 
+.form-scrollable::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, var(--primary-dark), var(--bg-dark));
+}
+ 
+@media (max-width: 991px) {
+    .form-scrollable {
+        height: calc(100vh - var(--navbar-h) - 80px);
+    }
+}
+ 
